@@ -1,0 +1,86 @@
+{
+    "profile": {
+        "image": {
+            "data": "https://media.istockphoto.com/illustrations/character-of-rice-illustration-id1128231021?s=612x612",
+            "contentType": "url"
+        },
+        "email": "mentee@test.com",
+        "age": 28,
+        "gender": "male",
+        "nickname": "다정한두더지"
+    },
+    "_id": "6220a6d719fdb532e8841fb3",
+    "role": "mentee",
+    "createdAt": "2022-03-03T11:30:31.984Z",
+    "__v": 0,
+    "mentor": {
+        "career": {
+            "auth": {
+                "method": null,
+                "isAuth": false
+            },
+            "job": null,
+            "company": null,
+            "years": null,
+            "topics": []
+        },
+        "_id": "6220a6d719fdb532e8841fb5",
+        "user": "6220a6d719fdb532e8841fb3",
+        "title": null,
+        "hashtags": [],
+        "searchAllow": true,
+        "createdAt": "2022-03-03T11:30:32.000Z",
+        "__v": 0,
+        "metadata": {
+            "rate": {
+                "score": 0,
+                "num": 0
+            },
+            "_id": "6220a6d819fdb532e8841fbd",
+            "mentor": "6220a6d719fdb532e8841fb5",
+            "numNews": 0,
+            "numLike": 0,
+            "numBobjari": 0,
+            "createdAt": "2022-03-03T11:30:32.013Z",
+            "__v": 0,
+            "id": "6220a6d819fdb532e8841fbd"
+        },
+        "details": {
+            "preference": {
+                "fee": {
+                    "select": null,
+                    "value": "0"
+                },
+                "schedule": [],
+                "location": []
+            },
+            "_id": "6220a6d819fdb532e8841fb7",
+            "mentor": "6220a6d719fdb532e8841fb5",
+            "introduce": null,
+            "createdAt": "2022-03-03T11:30:32.005Z",
+            "__v": 0,
+            "id": "6220a6d819fdb532e8841fb7"
+        },
+        "id": "6220a6d719fdb532e8841fb5"
+    },
+    "mentee": {
+        "_id": "6220a6d819fdb532e8841fb9",
+        "user": "6220a6d719fdb532e8841fb3",
+        "interests": [
+            "금융사무·금융상담"
+        ],
+        "createdAt": "2022-03-03T11:30:32.008Z",
+        "__v": 0,
+        "metadata": {
+            "_id": "6220a6d819fdb532e8841fbb",
+            "mentee": "6220a6d819fdb532e8841fb9",
+            "numNews": 0,
+            "searchKeyword": [],
+            "createdAt": "2022-03-03T11:30:32.011Z",
+            "__v": 0,
+            "id": "6220a6d819fdb532e8841fbb"
+        },
+        "id": "6220a6d819fdb532e8841fb9"
+    },
+    "id": "6220a6d719fdb532e8841fb3"
+}

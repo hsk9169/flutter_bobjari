@@ -1,0 +1,133 @@
+{
+    "profile": {
+        "image": {
+            "data": "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",
+            "contentType": "image/png"
+        },
+        "email": "mentor@test.com",
+        "age": 32,
+        "gender": "female",
+        "nickname": "즐거운거북이"
+    },
+    "_id": "6220a76519fdb532e8841fc8",
+    "role": "mentor",
+    "createdAt": "2022-03-03T11:32:53.754Z",
+    "__v": 0,
+    "mentor": {
+        "career": {
+            "auth": {
+                "method": null,
+                "isAuth": false
+            },
+            "job": "게임기획",
+            "company": "카카오게임즈 ",
+            "years": 1,
+            "topics": [
+                0,
+                2,
+                4,
+                6
+            ]
+        },
+        "_id": "6220a76519fdb532e8841fca",
+        "user": "6220a76519fdb532e8841fc8",
+        "title": "안녕하세요! 카카오게임즈에서 게임기획 업무 하고있습니다",
+        "hashtags": [],
+        "searchAllow": true,
+        "createdAt": "2022-03-03T11:32:53.757Z",
+        "__v": 0,
+        "metadata": {
+            "rate": {
+                "score": 14,
+                "num": 6
+            },
+            "_id": "6220a76519fdb532e8841fd6",
+            "mentor": "6220a76519fdb532e8841fca",
+            "numNews": 0,
+            "numLike": 0,
+            "numBobjari": 0,
+            "createdAt": "2022-03-03T11:32:53.772Z",
+            "__v": 0,
+            "id": "6220a76519fdb532e8841fd6"
+        },
+        "details": {
+            "preference": {
+                "fee": {
+                    "select": 0,
+                    "value": "20000"
+                },
+                "schedule": [
+                    {
+                        "day": "수",
+                        "startTime": "20:31",
+                        "endTime": "22:31",
+                        "_id": "6220a76519fdb532e8841fcd"
+                    },
+                    {
+                        "day": "토",
+                        "startTime": "19:32",
+                        "endTime": "21:32",
+                        "_id": "6220a76519fdb532e8841fce"
+                    }
+                ],
+                "location": [
+                    {
+                        "geolocation": {
+                            "x": "127.08983246938433",
+                            "y": "37.39108618024261",
+                            "distance": ""
+                        },
+                        "place_name": "오웰스일레븐",
+                        "address_name": "경기 성남시 분당구 판교동 616-4",
+                        "road_address_name": "경기 성남시 분당구 판교공원로3길 31-1",
+                        "category_group_name": "카페",
+                        "content_id": "23717953",
+                        "place_url": "http://place.map.kakao.com/23717953",
+                        "phone": "031-8016-0902",
+                        "_id": "6220a76519fdb532e8841fcf"
+                    },
+                    {
+                        "geolocation": {
+                            "x": "127.018141740704",
+                            "y": "37.5089498843265",
+                            "distance": ""
+                        },
+                        "place_name": "카페희다 반포점",
+                        "address_name": "서울 서초구 반포동 701-52",
+                        "road_address_name": "서울 서초구 주흥15길 16-4",
+                        "category_group_name": "카페",
+                        "content_id": "1324763770",
+                        "place_url": "http://place.map.kakao.com/1324763770",
+                        "phone": "02-6404-9003",
+                        "_id": "6220a76519fdb532e8841fd0"
+                    }
+                ]
+            },
+            "_id": "6220a76519fdb532e8841fcc",
+            "mentor": "6220a76519fdb532e8841fca",
+            "introduce": "안녕하세요~ 카카오 게임즈 마케팅 부서에서 근무한지 5년차 되는 직장인입니다 ㅎㅎ\n게임회사에서의 마케팅 업무와 회사 분위기나 연봉 다양하게 질문하셔도 답변 드릴 수 있어요!\n그 외에 코딩테스트 어떻게 준비했는지, 면접은 어떤식으로 진행되는지 또는 인턴십 기간과 과정에 대해서 상세히 말씀드릴게요 :)\n미래에 제 동료가 될 수도 있는 분들이니 성심성의껏 대답해드리겠습니다 ㅎ_ㅎ",
+            "createdAt": "2022-03-03T11:32:53.763Z",
+            "__v": 0,
+            "id": "6220a76519fdb532e8841fcc"
+        },
+        "id": "6220a76519fdb532e8841fca"
+    },
+    "mentee": {
+        "_id": "6220a76519fdb532e8841fd2",
+        "user": "6220a76519fdb532e8841fc8",
+        "interests": null,
+        "createdAt": "2022-03-03T11:32:53.768Z",
+        "__v": 0,
+        "metadata": {
+            "_id": "6220a76519fdb532e8841fd4",
+            "mentee": "6220a76519fdb532e8841fd2",
+            "numNews": 0,
+            "searchKeyword": [],
+            "createdAt": "2022-03-03T11:32:53.769Z",
+            "__v": 0,
+            "id": "6220a76519fdb532e8841fd4"
+        },
+        "id": "6220a76519fdb532e8841fd2"
+    },
+    "id": "6220a76519fdb532e8841fc8"
+}

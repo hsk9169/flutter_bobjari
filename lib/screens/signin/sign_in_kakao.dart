@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SignInBobScreen extends StatefulWidget {
-  const SignInBobScreen({Key? key}) : super(key: key);
+class SignInKakaoView extends StatefulWidget {
+  const SignInKakaoView({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _SignInBobScreen();
+  State<StatefulWidget> createState() => _SignInKakaoView();
 }
 
-class _SignInBobScreen extends State<SignInBobScreen> {
+class _SignInKakaoView extends State<SignInKakaoView> {
   final formKey = GlobalKey<FormState>();
 
   final emailInputController = TextEditingController();
@@ -59,8 +59,12 @@ class _SignInBobScreen extends State<SignInBobScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('밥자리 로그인',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text('카카오 로그인',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+        backgroundColor: const Color.fromARGB(248, 255, 230, 0),
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(30),
