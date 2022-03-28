@@ -158,7 +158,7 @@ class _WelcomeView extends State<WelcomeView> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SignInBobView()));
+                            builder: (context) => const EmailSubmitView()));
                     print('bob signin');
                   })),
           const Padding(padding: EdgeInsets.all(5)),

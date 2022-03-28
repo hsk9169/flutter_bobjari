@@ -12,7 +12,7 @@ class ServiceView extends StatefulWidget {
 class _ServiceView extends State<ServiceView> {
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<Session>(context).user.toJson());
+    print(Provider.of<Session>(context).token.toJson());
     return Scaffold(
         body: SafeArea(
             child: Padding(

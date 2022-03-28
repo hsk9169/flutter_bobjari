@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
           routes: {
             Routes.SPLASH: (context) => SplashView(),
             Routes.WELCOME: (context) => const WelcomeView(),
-            Routes.SERVICE: (context) => const MainView(),
+            Routes.SERVICE: (context) => ServiceView(),
           },
           initialRoute: Routes.SPLASH,
         ));

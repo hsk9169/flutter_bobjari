@@ -8,25 +8,28 @@ import 'package:bobjari_proj/widgets/base_padding.dart';
 import 'package:bobjari_proj/widgets/topbar_back.dart';
 import 'package:bobjari_proj/widgets/top_title.dart';
 import 'package:bobjari_proj/services/real_api_service.dart';
-import 'package:bobjari_proj/screens/screens.dart';
+import 'package:bobjari_proj/routes/routes.dart';
+import 'package:bobjari_proj/providers/session_provider.dart';
 
-class EmailSubmitView extends StatefulWidget {
-  const EmailSubmitView({Key? key}) : super(key: key);
+class SignInBobView extends StatefulWidget {
+  const SignInBobView({Key? key, required this.email, required this.authNum})
+      : super(key: key);
+  final String email;
+  final String authNum;
 
   @override
-  State<StatefulWidget> createState() => _EmailSubmitView();
+  State<StatefulWidget> createState() => _SignInBobView();
 }
 
-class _EmailSubmitView extends State<EmailSubmitView> {
+class _SignInBobView extends State<SignInBobView> {
   final RealApiService _realApiService = RealApiService();
 
   late TextEditingController _textController;
-  final ImagePicker _picker = ImagePicker();
 
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController(text: 'mentee@test.com');
+    _textController = TextEditingController(text: widget.authNum);
   }
 
   @override
@@ -35,21 +38,22 @@ class _EmailSubmitView extends State<EmailSubmitView> {
     super.dispose();
   }
 
-  void _submitEmail(BuildContext context) async {
-    String _email = _textController.text;
-    final _res = await _realApiService.authEmail(_email);
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignInBobView(email: _email, authNum: _res)));
-  }
-
-  void _uploadImage(ImageSource source, BuildContext context) async {
-    XFile? _imgFile = await _picker.pickImage(
-      source: source,
-    );
-    Uint8List? _imgBytes = await _imgFile?.readAsBytes();
-    String _imgBase64 = base64.encode(_imgBytes as Uint8List);
+  void _signInBob() async {
+    final _jwt;
+    final _user;
+    if (widget.authNum == _textController.text) {
+      final _user = await _realApiService.signInBob(widget.email);
+      if (_user.profile.email == widget.email) {
+        _jwt = await _realApiService.getJWT(_user.profile.email as String);
+        Provider.of<Session>(context, listen: false).user = _user;
+        Provider.of<Session>(context, listen: false).token = _jwt;
+      } else {
+        throw Exception('email not matched');
+      }
+    } else {
+      throw Exception('authNum not matched');
+    }
+    Navigator.pushNamed(context, Routes.SERVICE);
   }
 
   void _goBack() {
@@ -67,20 +71,19 @@ class _EmailSubmitView extends State<EmailSubmitView> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             const Padding(padding: EdgeInsets.all(15)),
-            const TopTitle(titleText: ['등록된 이메일로', '인증번호를 요청해주세요.']),
+            const TopTitle(titleText: ['이메일로 받은', '인증번호를 입력해주세요.']),
             const Padding(padding: EdgeInsets.all(10)),
             TextField(
-              decoration:
-                  const InputDecoration(hintText: 'example@bobjari.com'),
+              decoration: const InputDecoration(hintText: '인증번호 입력'),
               controller: _textController,
             ),
             const Padding(padding: EdgeInsets.all(10)),
             BigButton(
                 btnColor: Colors.black,
-                title: '인증번호 요청',
+                title: '인증번호 확인',
                 txtColor: Colors.white,
                 press: () {
-                  _submitEmail(context);
+                  _signInBob();
                 }),
           ],
         ),

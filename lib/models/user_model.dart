@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import './user/profile.dart';
-import './mentor/mentor.dart';
-import './mentee/mentee.dart';
+import 'package:bobjari_proj/models/user/profile.dart';
+import 'package:bobjari_proj/models/mentor/mentor.dart';
+import 'package:bobjari_proj/models/mentee/mentee.dart';
 
 class UserModel {
   late ProfileModel profile;
