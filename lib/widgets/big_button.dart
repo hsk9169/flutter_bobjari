@@ -26,12 +26,13 @@ class BigButton extends StatelessWidget {
               if (press != null) {press!()}
             },
         style: ElevatedButton.styleFrom(
-            primary: btnColor,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            side: BorderSide(color: borderColor ?? btnColor, width: 2.0),
-            fixedSize: size),
+          primary: btnColor,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          side: BorderSide(color: borderColor ?? btnColor, width: 2.0),
+          //fixedSize: size),
+        ),
         child: Text(title,
             style: TextStyle(
                 fontSize: 20, fontWeight: FontWeight.bold, color: txtColor)));

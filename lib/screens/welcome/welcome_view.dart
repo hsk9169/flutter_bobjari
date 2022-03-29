@@ -159,7 +159,6 @@ class _WelcomeView extends State<WelcomeView> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const EmailSubmitView()));
-                    print('bob signin');
                   })),
           const Padding(padding: EdgeInsets.all(5)),
           SizedBox(

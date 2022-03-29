@@ -10,8 +10,10 @@ class BasePadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.only(left: BobSpaces.firstEgg, right: BobSpaces.firstEgg),
+      padding: EdgeInsets.only(
+        left: BobSpaces.firstEgg,
+        right: BobSpaces.firstEgg,
+      ),
       child: child,
     );
   }
