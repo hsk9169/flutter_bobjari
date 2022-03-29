@@ -54,6 +54,8 @@ class _SignInBobView extends State<SignInBobView> {
       throw Exception('authNum not matched');
     }
     Navigator.pushNamed(context, Routes.SERVICE);
+    Navigator.pushNamedAndRemoveUntil(
+        context, Routes.SERVICE, (Route<dynamic> route) => false);
   }
 
   void _goBack() {
@@ -64,30 +66,42 @@ class _SignInBobView extends State<SignInBobView> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-            child: Column(children: [
-      TopBarBack(press: _goBack),
-      BasePadding(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const Padding(padding: EdgeInsets.all(15)),
-            const TopTitle(titleText: ['이메일로 받은', '인증번호를 입력해주세요.']),
-            const Padding(padding: EdgeInsets.all(10)),
-            TextField(
-              decoration: const InputDecoration(hintText: '인증번호 입력'),
-              controller: _textController,
-            ),
-            const Padding(padding: EdgeInsets.all(10)),
-            BigButton(
-                btnColor: Colors.black,
-                title: '인증번호 확인',
-                txtColor: Colors.white,
-                press: () {
-                  _signInBob();
-                }),
-          ],
-        ),
-      )
-    ])));
+            child: SingleChildScrollView(
+                child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxHeight: MediaQuery.of(context).size.height),
+                    child: Column(children: [
+                      TopBarBack(press: _goBack),
+                      BasePadding(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            const Padding(padding: EdgeInsets.all(15)),
+                            const TopTitle(
+                                titleText: ['이메일로 받은', '인증번호를 입력해주세요.']),
+                            const Padding(padding: EdgeInsets.all(10)),
+                            TextField(
+                              decoration:
+                                  const InputDecoration(hintText: '인증번호 입력'),
+                              controller: _textController,
+                              keyboardType: TextInputType.number,
+                            ),
+                          ],
+                        ),
+                      )
+                    ])))),
+        bottomSheet: BasePadding(
+            child: Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: BigButton(
+                        btnColor: Colors.black,
+                        title: '인증번호 확인',
+                        txtColor: Colors.white,
+                        press: () {
+                          _signInBob();
+                        })))));
   }
 }

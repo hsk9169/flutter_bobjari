@@ -7,11 +7,17 @@ import 'package:bobjari_proj/services/api.dart';
 import 'package:bobjari_proj/models/user_model.dart';
 
 class RealApiService implements Api {
-  String serverUri = 'localhost:8000';
+  String serverUri = 'localhost';
 
   @override
   Future<String> authEmail(String email) async {
-    final res = await http.post(Uri.http(serverUri, ApiCalls.emailAuth),
+    //final res = await http.post(Uri.http(serverUri, ApiCalls.emailAuth),
+    final res = await http.post(
+        Uri(
+            scheme: 'http',
+            host: '172.20.10.12',
+            port: 8000,
+            path: ApiCalls.emailAuth),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=utf-8',
         },
@@ -27,7 +33,13 @@ class RealApiService implements Api {
 
   @override
   Future<UserModel> signInBob(String email) async {
-    final res = await http.post(Uri.http(serverUri, ApiCalls.signinBob),
+    //final res = await http.post(Uri.http(serverUri, ApiCalls.signinBob),
+    final res = await http.post(
+        Uri(
+            scheme: 'http',
+            host: 'localhost',
+            port: 8000,
+            path: ApiCalls.signinBob),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=utf-8',
         },
@@ -43,8 +55,15 @@ class RealApiService implements Api {
 
   @override
   Future<TokenModel> getJWT(String email) async {
+    //final res = await http.get(
+    //    Uri.http(serverUri, ApiCalls.getToken, {'email': email}),
     final res = await http.get(
-        Uri.http(serverUri, ApiCalls.getToken, {'email': email}),
+        Uri(
+            scheme: 'http',
+            host: 'localhost',
+            port: 8000,
+            path: ApiCalls.getToken,
+            queryParameters: {'email': email}),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=utf-8',
         });

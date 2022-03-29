@@ -60,31 +60,43 @@ class _EmailSubmitView extends State<EmailSubmitView> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-            child: Column(children: [
-      TopBarBack(press: _goBack),
-      BasePadding(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const Padding(padding: EdgeInsets.all(15)),
-            const TopTitle(titleText: ['등록된 이메일로', '인증번호를 요청해주세요.']),
-            const Padding(padding: EdgeInsets.all(10)),
-            TextField(
-              decoration:
-                  const InputDecoration(hintText: 'example@bobjari.com'),
-              controller: _textController,
-            ),
-            const Padding(padding: EdgeInsets.all(10)),
-            BigButton(
-                btnColor: Colors.black,
-                title: '인증번호 요청',
-                txtColor: Colors.white,
-                press: () {
-                  _submitEmail(context);
-                }),
-          ],
-        ),
-      )
-    ])));
+            child: SingleChildScrollView(
+                child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: MediaQuery.of(context).size.height,
+                    ),
+                    child: Column(children: [
+                      TopBarBack(press: _goBack),
+                      BasePadding(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            const Padding(padding: EdgeInsets.all(15)),
+                            const TopTitle(
+                                titleText: ['등록된 이메일로', '인증번호를 요청해주세요.']),
+                            const Padding(padding: EdgeInsets.all(10)),
+                            TextField(
+                              decoration: const InputDecoration(
+                                  hintText: 'example@bobjari.com'),
+                              controller: _textController,
+                              keyboardType: TextInputType.emailAddress,
+                            ),
+                          ],
+                        ),
+                      )
+                    ])))),
+        bottomSheet: BasePadding(
+            child: Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: BigButton(
+                        btnColor: Colors.black,
+                        title: '인증번호 요청',
+                        txtColor: Colors.white,
+                        press: () {
+                          _submitEmail(context);
+                        })))));
   }
 }
