@@ -4,6 +4,7 @@ import 'package:animations/animations.dart';
 import 'package:bobjari_proj/providers/session_provider.dart';
 import 'package:bobjari_proj/widgets/base_padding.dart';
 import 'package:bobjari_proj/screens/screens.dart';
+import 'package:bobjari_proj/widgets/base_scroller.dart';
 
 class ServiceView extends StatefulWidget {
   @override
@@ -27,12 +28,9 @@ class _ServiceView extends State<ServiceView> {
 
   @override
   Widget build(BuildContext context) {
-    //print(Provider.of<Session>(context).token.toJson());
-    //print(Provider.of<Session>(context).user.toJson());
-    return Scaffold(
-      body: SafeArea(
-          child: BasePadding(
-              child: (PageTransitionSwitcher(
+    return BaseScroller(
+      child: BasePadding(
+          child: (PageTransitionSwitcher(
         transitionBuilder: (
           child,
           animation,
@@ -45,7 +43,7 @@ class _ServiceView extends State<ServiceView> {
               child: child);
         },
         child: _widgetOptions.elementAt(_selected),
-      )))),
+      ))),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

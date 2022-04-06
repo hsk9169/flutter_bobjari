@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TopBarBack extends StatelessWidget {
-  final Function? press;
+  final Function press;
 
   const TopBarBack({
     Key? key,
@@ -11,13 +11,15 @@ class TopBarBack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: const BoxDecoration(color: Colors.white),
         alignment: Alignment.centerLeft,
-        child: IconButton(
+        child: SafeArea(
+            child: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           color: Colors.grey,
-          onPressed: () => {
-            if (press != null) {press!()}
+          onPressed: () {
+            press();
           },
-        ));
+        )));
   }
 }

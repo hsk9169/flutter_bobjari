@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:bobjari_proj/screens/screens.dart';
 import 'package:bobjari_proj/const/colors.dart';
 import 'package:bobjari_proj/providers/session_provider.dart';
+import 'package:bobjari_proj/providers/signup_provider.dart';
 import 'package:bobjari_proj/widgets/dismiss_keyboard.dart';
 import 'routes/routes.dart';
 
@@ -18,6 +19,7 @@ class _MyAppState extends State<MyApp> {
         child: MultiProvider(
             providers: [
           ChangeNotifierProvider<Session>.value(value: Session()),
+          ChangeNotifierProvider<Signup>.value(value: Signup()),
         ],
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
@@ -31,6 +33,7 @@ class _MyAppState extends State<MyApp> {
                 Routes.SPLASH: (context) => SplashView(),
                 Routes.WELCOME: (context) => const WelcomeView(),
                 Routes.SERVICE: (context) => ServiceView(),
+                Routes.SIGNUP: (context) => SignupProfileNicknameView(),
               },
               initialRoute: Routes.SPLASH,
             )));

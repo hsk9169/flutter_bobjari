@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../widgets/big_button.dart';
+import 'package:bobjari_proj/widgets/big_button.dart';
 import 'package:bobjari_proj/widgets/base_padding.dart';
 import 'package:bobjari_proj/screens/screens.dart';
-import '../../const/colors.dart';
+import 'package:bobjari_proj/const/colors.dart';
 import 'package:bobjari_proj/routes/routes.dart';
 
 class WelcomeView extends StatefulWidget {
@@ -13,8 +13,9 @@ class WelcomeView extends StatefulWidget {
 }
 
 class _WelcomeView extends State<WelcomeView> {
-  final PageController _controller = PageController(initialPage: 0);
-  int curPage = 0;
+  final PageController _pController = PageController(initialPage: 0);
+
+  int _curPage = 0;
 
   @override
   void initState() {
@@ -24,14 +25,14 @@ class _WelcomeView extends State<WelcomeView> {
 
   void _pageSlider() {
     Future.delayed(const Duration(seconds: 2)).then((_) {
-      if (curPage < _pageList.length - 1) {
-        curPage++;
+      if (_curPage < _pageList.length - 1) {
+        _curPage++;
       } else {
-        curPage = 0;
+        _curPage = 0;
       }
 
-      _controller
-          .animateToPage(curPage,
+      _pController
+          .animateToPage(_curPage,
               duration: const Duration(milliseconds: 300),
               curve: Curves.elasticOut)
           .then((_) => _pageSlider());
@@ -40,7 +41,7 @@ class _WelcomeView extends State<WelcomeView> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    _pController.dispose();
     super.dispose();
   }
 
@@ -117,6 +118,10 @@ class _WelcomeView extends State<WelcomeView> {
     ),
   ];
 
+  void _press() {
+    print('bob but');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,10 +131,10 @@ class _WelcomeView extends State<WelcomeView> {
       children: [
         const Padding(padding: EdgeInsets.all(10)),
         SizedBox(
-            height: MediaQuery.of(context).size.height * 0.63,
+            height: MediaQuery.of(context).size.height * 0.6,
             child: PageView.builder(
                 physics: const AlwaysScrollableScrollPhysics(),
-                controller: _controller,
+                controller: _pController,
                 itemCount: _pageList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return _pageList[index];
@@ -140,26 +145,21 @@ class _WelcomeView extends State<WelcomeView> {
               height: 50,
               child: BigButton(
                   btnColor: const Color.fromARGB(248, 255, 230, 0),
-                  title: '카카오 로그인',
+                  title: '카카오로 로그인',
                   txtColor: Colors.black,
-                  press: () {
-                    //MaterialPageRoute(builder: (context) => const SignInKakaoView())
-                    print('kakao signin');
-                  })),
+                  press: () async {})),
           const Padding(padding: EdgeInsets.all(5)),
           SizedBox(
               width: double.infinity,
               height: 50,
               child: BigButton(
                   btnColor: BobColors.mainColor,
-                  title: '밥자리 로그인',
+                  title: '밥자리로 로그인',
                   txtColor: Colors.white,
-                  press: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const EmailSubmitView()));
-                  })),
+                  press: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PhoneSubmitView())))),
           const Padding(padding: EdgeInsets.all(5)),
           SizedBox(
               width: double.infinity,
@@ -169,9 +169,7 @@ class _WelcomeView extends State<WelcomeView> {
                   title: '비회원으로 둘러보기',
                   txtColor: Colors.black,
                   borderColor: Colors.black,
-                  press: () {
-                    Navigator.pushNamed(context, Routes.SERVICE);
-                  })),
+                  press: () => Navigator.pushNamed(context, Routes.SERVICE))),
         ])
       ],
     ))));
@@ -202,7 +200,7 @@ class SlidePage extends StatelessWidget {
       ),
       Container(
         width: (MediaQuery.of(context).size.width),
-        height: (MediaQuery.of(context).size.height * 0.4),
+        height: (MediaQuery.of(context).size.height * 0.3),
         decoration: BoxDecoration(
           image: img,
         ),

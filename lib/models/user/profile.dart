@@ -1,16 +1,23 @@
 class ProfileModel {
   String? email;
+  String? phone;
   int? age;
   String? gender;
   String? nickname;
   ProfileImageModel? profileImage;
 
   ProfileModel(
-      {this.email, this.age, this.gender, this.nickname, this.profileImage});
+      {this.email,
+      this.phone,
+      this.age,
+      this.gender,
+      this.nickname,
+      this.profileImage});
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) {
     return ProfileModel(
       email: json['email'],
+      phone: json['phone'],
       age: json['age'],
       gender: json['gender'],
       nickname: json['nickname'],
@@ -20,6 +27,7 @@ class ProfileModel {
 
   Map<String, dynamic> toJson() => {
         'email': email ?? '',
+        'phone': phone ?? '',
         'age': age ?? '',
         'gender': gender ?? '',
         'nickname': nickname ?? '',

@@ -10,13 +10,19 @@ class TopTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(titleText[0],
-          style: const TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black)),
-      Text(titleText[1],
-          style: const TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black))
-    ]);
+    return Padding(
+        padding: const EdgeInsets.only(top: 10, bottom: 30),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(titleText[0],
+              style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black)),
+          Text(titleText[1],
+              style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black))
+        ]));
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:bobjari_proj/models/sms_auth_model.dart';
 import 'package:bobjari_proj/models/token_model.dart';
 import 'package:bobjari_proj/services/api.dart';
 import 'package:flutter/services.dart';
@@ -40,5 +41,10 @@ class FakeApiService implements Api {
   @override
   Future<String> checkNickname(String nickname) async {
     return 'available';
+  }
+
+  @override
+  Future<SmsAuthModel> authSms(String phone) async {
+    return SmsAuthModel(authNum: '111111', authResult: 'authorized');
   }
 }

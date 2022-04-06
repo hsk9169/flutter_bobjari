@@ -1,8 +1,4 @@
-import 'dart:convert';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:bobjari_proj/widgets/big_button.dart';
 import 'package:bobjari_proj/widgets/base_padding.dart';
 import 'package:bobjari_proj/widgets/topbar_back.dart';
@@ -21,7 +17,6 @@ class _EmailSubmitView extends State<EmailSubmitView> {
   final RealApiService _realApiService = RealApiService();
 
   late TextEditingController _textController;
-  final ImagePicker _picker = ImagePicker();
 
   @override
   void initState() {
@@ -44,14 +39,6 @@ class _EmailSubmitView extends State<EmailSubmitView> {
             builder: (context) => SignInBobView(email: _email, authNum: _res)));
   }
 
-  void _uploadImage(ImageSource source, BuildContext context) async {
-    XFile? _imgFile = await _picker.pickImage(
-      source: source,
-    );
-    Uint8List? _imgBytes = await _imgFile?.readAsBytes();
-    String _imgBase64 = base64.encode(_imgBytes as Uint8List);
-  }
-
   void _goBack() {
     Navigator.pop(context);
   }
@@ -71,10 +58,8 @@ class _EmailSubmitView extends State<EmailSubmitView> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            const Padding(padding: EdgeInsets.all(15)),
                             const TopTitle(
                                 titleText: ['등록된 이메일로', '인증번호를 요청해주세요.']),
-                            const Padding(padding: EdgeInsets.all(10)),
                             TextField(
                               decoration: const InputDecoration(
                                   hintText: 'example@bobjari.com'),

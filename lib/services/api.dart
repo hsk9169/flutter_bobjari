@@ -1,3 +1,4 @@
+import 'package:bobjari_proj/models/sms_auth_model.dart';
 import 'package:bobjari_proj/models/user_model.dart';
 import 'package:bobjari_proj/models/token_model.dart';
 import 'package:bobjari_proj/models/signup.dart';
@@ -9,4 +10,5 @@ abstract class Api {
   Future<TokenModel> getJWT(String email);
   Future<String> checkNickname(String nickname);
   //Future<UserModel> signUpBob(SignupModel signupModel);
+  Future<SmsAuthModel> authSms(String phone);
 }

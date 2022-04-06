@@ -15,6 +15,7 @@ class ApiCalls {
 
   static String getToken = '/api/auth/token';
   static String emailAuth = '/api/auth/email';
+  static String smsAuth = '/api/auth/phone';
   static String kakaoAuth = '/api/auth/kakao';
   static String verifyToken = '/api/auth/verify';
 

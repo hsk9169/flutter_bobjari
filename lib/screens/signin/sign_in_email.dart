@@ -43,8 +43,8 @@ class _SignInBobView extends State<SignInBobView> {
     final _user;
     if (widget.authNum == _textController.text) {
       final _user = await _realApiService.signInBob(widget.email);
-      if (_user.profile.email == widget.email) {
-        _jwt = await _realApiService.getJWT(_user.profile.email as String);
+      if (_user.profile?.email == widget.email) {
+        _jwt = await _realApiService.getJWT(_user.profile?.email as String);
         Provider.of<Session>(context, listen: false).user = _user;
         Provider.of<Session>(context, listen: false).token = _jwt;
       } else {
@@ -76,10 +76,8 @@ class _SignInBobView extends State<SignInBobView> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            const Padding(padding: EdgeInsets.all(15)),
                             const TopTitle(
                                 titleText: ['이메일로 받은', '인증번호를 입력해주세요.']),
-                            const Padding(padding: EdgeInsets.all(10)),
                             TextField(
                               decoration:
                                   const InputDecoration(hintText: '인증번호 입력'),
