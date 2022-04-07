@@ -1,18 +1,19 @@
 import 'package:flutter/foundation.dart';
+import 'dart:typed_data';
 
 class Signup with ChangeNotifier {
   String _phone = '';
   String _nickname = '';
   int _age = 0;
   String _gender = '';
-  String _image = '';
+  late Uint8List _image;
   String _role = '';
 
   String get phone => _phone;
   String get nickname => _nickname;
   int get age => _age;
   String get gender => _gender;
-  String get image => _image;
+  Uint8List get image => _image;
   String get role => _role;
 
   set phone(String value) {
@@ -35,7 +36,7 @@ class Signup with ChangeNotifier {
     notifyListeners();
   }
 
-  set image(String value) {
+  set image(Uint8List value) {
     _image = value;
     notifyListeners();
   }

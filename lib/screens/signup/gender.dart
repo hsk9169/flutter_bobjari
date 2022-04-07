@@ -48,7 +48,6 @@ class _SignupProfileGenderView extends State<SignupProfileGenderView> {
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<Signup>(context).show();
     return SignupForm(
         topTitle: const ['성별을 선택해주세요.', ''],
         child: ConstrainedBox(

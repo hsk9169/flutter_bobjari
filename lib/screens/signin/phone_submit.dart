@@ -21,12 +21,14 @@ class PhoneSubmitView extends StatefulWidget {
 class _PhoneSubmitView extends State<PhoneSubmitView> {
   //final RealApiService _apiService = RealApiService();
   final FakeApiService _apiService = FakeApiService();
-  final TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController =
+      TextEditingController(text: '1234567890');
   bool _validate = false;
 
   @override
   void initState() {
     super.initState();
+    _textValidate();
     _textController.addListener(_onChange);
   }
 
@@ -37,6 +39,10 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
   }
 
   void _onChange() {
+    _textValidate();
+  }
+
+  void _textValidate() {
     if (_textController.text.length > 9) {
       setState(() {
         _validate = true;

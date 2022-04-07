@@ -5,6 +5,7 @@
             "contentType": "url"
         },
         "email": "mentee@test.com",
+        "phone": "1234567890",
         "age": 28,
         "gender": "male",
         "nickname": "다정한두더지"

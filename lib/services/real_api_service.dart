@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:bobjari_proj/models/signup.dart';
+import 'package:bobjari_proj/models/signup_model.dart';
 import 'package:bobjari_proj/models/sms_auth_model.dart';
 import 'package:bobjari_proj/models/token_model.dart';
 import 'package:http/http.dart' as http;
@@ -60,7 +60,8 @@ class RealApiService implements Api {
     final res = await http.get(
         Uri(
             scheme: 'http',
-            host: 'localhost',
+            //host: 'localhost',
+            host: '172.20.10.12',
             port: 8000,
             path: ApiCalls.getToken,
             queryParameters: {'email': email}),
@@ -94,13 +95,6 @@ class RealApiService implements Api {
     }
   }
 
-  //@override
-  //Future<UserModel> signUpBob(SignupModel model) async {
-  //  var res = http.MultipartRequest('POST', Uri.parse(serverUri));
-  //  res.files.add(await http.MultipartFile('img', ))
-//
-  //}
-
   @override
   Future<SmsAuthModel> authSms(String phone) async {
     final res = await http.post(
@@ -120,6 +114,32 @@ class RealApiService implements Api {
       return SmsAuthModel.fromJson(jsonDecode(res.body));
     } else {
       throw Exception('Failed to Auth SMS');
+    }
+  }
+
+  @override
+  Future<UserModel> signUpBob(SignupModel model) async {
+    //iphone
+    //host: '172.20.10.12',
+    //var req = http.MultipartRequest(
+    //    'POST', Uri.parse('http://localhost:8000' + ApiCalls.userJoin));
+    var req = http.MultipartRequest(
+        'POST', Uri.parse('http://172.20.10.12:8000' + ApiCalls.userJoin));
+    var image = http.MultipartFile.fromBytes('img', model.image,
+        filename: 'profileImage.jpg');
+    req.files.add(image);
+    if (model.email != null) req.fields['email'] = model.email!;
+    if (model.phone != null) req.fields['phone'] = model.phone!;
+    req.fields['age'] = model.age.toString();
+    req.fields['gender'] = json.encode(model.gender);
+    req.fields['nickname'] = json.encode(model.nickname);
+    req.fields['role'] = json.encode(model.role);
+    final res = await req.send();
+    var streamRes = await http.Response.fromStream(res);
+    if (res.statusCode == 200) {
+      return UserModel.fromJson(jsonDecode(streamRes.body));
+    } else {
+      throw Exception('Failed to Sign In with Bob');
     }
   }
 }

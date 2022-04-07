@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:bobjari_proj/providers/signup_provider.dart';
 import 'package:bobjari_proj/screens/signup/age.dart';
 import 'package:bobjari_proj/services/real_api_service.dart';
+import 'package:bobjari_proj/services/fake_api_service.dart';
 
 class SignupProfileNicknameView extends StatefulWidget {
   @override
@@ -12,8 +13,9 @@ class SignupProfileNicknameView extends StatefulWidget {
 }
 
 class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
-  final RealApiService _realApiService = RealApiService();
-  final _textController = TextEditingController();
+  //final RealApiService _realApiService = RealApiService();
+  final FakeApiService _fakeApiService = FakeApiService();
+  final _textController = TextEditingController(text: '테스트계정');
   bool _validate = false;
   bool _duplicate = false;
   Timer? _timer;
@@ -21,6 +23,7 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
   @override
   void initState() {
     super.initState();
+    _textValidate();
     _textController.addListener(_onChange);
   }
 
@@ -36,7 +39,8 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
   }
 
   void _expired() async {
-    final _check = await _realApiService.checkNickname(_textController.text);
+    //final _check = await _realApiService.checkNickname(_textController.text);
+    final _check = await _fakeApiService.checkNickname(_textController.text);
     if (_check == 'available') {
       setState(() {
         _duplicate = false;
@@ -50,6 +54,10 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
   }
 
   void _onChange() {
+    _textValidate();
+  }
+
+  void _textValidate() {
     if (_textController.text.length > 4) {
       _timer?.cancel();
       _initTimer();
