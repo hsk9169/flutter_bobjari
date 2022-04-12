@@ -61,7 +61,7 @@ class _SignInPhonelView extends State<SignInPhoneView> {
       //  Provider.of<Signup>(context, listen: false).phone = widget.phone;
       //  Navigator.pushNamed(context, Routes.SIGNUP);
       //} else {
-      //  throw Exception('email not matched');
+      //  throw Exception('phone not matched');
       //}
     } else {
       setState(() {

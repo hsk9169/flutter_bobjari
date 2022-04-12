@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'dart:typed_data';
 
 class Signup with ChangeNotifier {
+  String _email = '';
   String _phone = '';
   String _nickname = '';
   int _age = 0;
@@ -9,12 +10,18 @@ class Signup with ChangeNotifier {
   late Uint8List _image;
   String _role = '';
 
+  String get email => _email;
   String get phone => _phone;
   String get nickname => _nickname;
   int get age => _age;
   String get gender => _gender;
   Uint8List get image => _image;
   String get role => _role;
+
+  set email(String value) {
+    _email = value;
+    notifyListeners();
+  }
 
   set phone(String value) {
     _phone = value;
@@ -48,6 +55,6 @@ class Signup with ChangeNotifier {
 
   void show() {
     print(
-        'phone: $_phone, nickname: $_nickname, age: $_age, gender: $_gender, image: $_image, role: $_role');
+        'email: $_email, phone: $_phone, nickname: $_nickname, age: $_age, gender: $_gender, image: $_image, role: $_role');
   }
 }

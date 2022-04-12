@@ -56,6 +56,29 @@ class RealApiService implements Api {
   }
 
   @override
+  Future<UserModel> signInKakao(String email) async {
+    final res = await http.post(
+        Uri(
+            scheme: 'http',
+            host: 'localhost',
+            port: 8000,
+            path: ApiCalls.signinKakao),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: jsonEncode(<String, String>{
+          'email': email,
+        }));
+    if (res.statusCode == 200) {
+      return UserModel.fromJson(jsonDecode(res.body));
+    } else if (res.statusCode == 204) {
+      return UserModel();
+    } else {
+      throw Exception('Failed to Sign In witn Kakao');
+    }
+  }
+
+  @override
   Future<TokenModel> getJWT(String email) async {
     final res = await http.get(
         Uri(
@@ -80,7 +103,8 @@ class RealApiService implements Api {
     final res = await http.get(
       Uri(
           scheme: 'http',
-          host: 'localhost',
+          //host: 'localhost',
+          host: '172.20.10.12',
           port: 8000,
           path: ApiCalls.checkNickname,
           queryParameters: {'nickname': nickname}),
@@ -129,8 +153,9 @@ class RealApiService implements Api {
         filename: 'profileImage.jpg');
     req.files.add(image);
     if (model.email != null) req.fields['email'] = model.email!;
-    if (model.phone != null) req.fields['phone'] = model.phone!;
-    req.fields['age'] = model.age.toString();
+    if (model.phone != null)
+      req.fields['phone'] = json.encode(model.phone!.toString());
+    req.fields['age'] = json.encode(model.age);
     req.fields['gender'] = json.encode(model.gender);
     req.fields['nickname'] = json.encode(model.nickname);
     req.fields['role'] = json.encode(model.role);

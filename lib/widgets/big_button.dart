@@ -25,7 +25,7 @@ class BigButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           primary: btnColor,
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
           side: BorderSide(
               color: press == null || borderColor == null

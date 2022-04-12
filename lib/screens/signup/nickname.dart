@@ -13,12 +13,13 @@ class SignupProfileNicknameView extends StatefulWidget {
 }
 
 class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
-  //final RealApiService _realApiService = RealApiService();
-  final FakeApiService _fakeApiService = FakeApiService();
+  final RealApiService _realApiService = RealApiService();
+  //final FakeApiService _fakeApiService = FakeApiService();
   final _textController = TextEditingController(text: '테스트계정');
   bool _validate = false;
   bool _duplicate = false;
   Timer? _timer;
+  String _nickname = '';
 
   @override
   void initState() {
@@ -35,12 +36,12 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
   }
 
   void _initTimer() {
-    _timer = Timer(const Duration(milliseconds: 500), _expired);
+    _timer = Timer(const Duration(milliseconds: 300), _expired);
   }
 
   void _expired() async {
-    //final _check = await _realApiService.checkNickname(_textController.text);
-    final _check = await _fakeApiService.checkNickname(_textController.text);
+    final _check = await _realApiService.checkNickname(_nickname);
+    //final _check = await _fakeApiService.checkNickname(_nickname);
     if (_check == 'available') {
       setState(() {
         _duplicate = false;
@@ -62,6 +63,7 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
       _timer?.cancel();
       _initTimer();
       setState(() {
+        _nickname = _textController.text;
         _validate = true;
       });
     } else {

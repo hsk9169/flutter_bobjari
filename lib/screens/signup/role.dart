@@ -45,6 +45,7 @@ class _SignupProfileRoleView extends State<SignupProfileRoleView> {
       image: Provider.of<Signup>(context, listen: false).image,
       role: _role,
     );
+    Provider.of<Signup>(context, listen: false).show();
     _user = await _realApiService.signUpBob(_reqModel);
     if (_user.profile?.nickname == _reqModel.nickname) {
       _jwt = await _realApiService.getJWT(_user.profile?.phone as String);

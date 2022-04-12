@@ -56,11 +56,13 @@ class _MainView extends State<MainView> {
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
+          decoration: const BoxDecoration(color: Colors.white),
           alignment: Alignment.centerLeft,
           child: Container(
             width: (MediaQuery.of(context).size.width) * 0.5,
             height: (MediaQuery.of(context).size.height * 0.2),
             decoration: const BoxDecoration(
+              color: Colors.white,
               image: DecorationImage(
                 image: AssetImage('assets/images/slogan.png'),
                 fit: BoxFit.contain,

@@ -24,6 +24,7 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
   final TextEditingController _textController =
       TextEditingController(text: '1234567890');
   bool _validate = false;
+  String _phone = '';
 
   @override
   void initState() {
@@ -45,6 +46,7 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
   void _textValidate() {
     if (_textController.text.length > 9) {
       setState(() {
+        _phone = _textController.text;
         _validate = true;
       });
     } else {

@@ -28,6 +28,18 @@ class FakeApiService implements Api {
   }
 
   @override
+  Future<UserModel> signInKakao(String option) async {
+    final _resourcePath = _jsonDir + option + _jsonExtension;
+    final _data = await rootBundle.load(_resourcePath);
+    final _map = json.decode(
+      utf8.decode(
+        _data.buffer.asUint8List(_data.offsetInBytes, _data.lengthInBytes),
+      ),
+    );
+    return UserModel.fromJson(_map);
+  }
+
+  @override
   Future<TokenModel> getJWT(String option) async {
     final _resourcePath = _jsonDir + option + _jsonExtension;
     final _data = await rootBundle.load(_resourcePath);
