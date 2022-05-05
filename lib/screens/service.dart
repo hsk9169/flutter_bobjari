@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:animations/animations.dart';
 import 'package:bobjari_proj/providers/session_provider.dart';
-import 'package:bobjari_proj/widgets/base_padding.dart';
+import 'package:animations/animations.dart';
 import 'package:bobjari_proj/screens/screens.dart';
-import 'package:bobjari_proj/widgets/base_scroller.dart';
+import 'package:bobjari_proj/routes/routes.dart';
 
 class ServiceView extends StatefulWidget {
   @override
@@ -14,13 +13,24 @@ class ServiceView extends StatefulWidget {
 class _ServiceView extends State<ServiceView> {
   int _selected = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    MainView(),
-    BobView(),
-    MypageView(),
-  ];
+  Widget? _bodyWidget(int _index, dynamic _session) {
+    switch (_index) {
+      case 0:
+        return MainView(session: _session);
+      case 1:
+        return BobView(session: _session);
+      case 2:
+        return MypageView(session: _session);
+      default:
+        break;
+    }
+  }
 
   void _onItemTapped(int sel) {
+    if (sel > 0 &&
+        Provider.of<Session>(context, listen: false).user.userId == null) {
+      Navigator.pushNamed(context, Routes.WELCOME);
+    }
     setState(() {
       _selected = sel;
     });
@@ -28,22 +38,22 @@ class _ServiceView extends State<ServiceView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScroller(
-      child: BasePadding(
+    var _session = Provider.of<Session>(context, listen: false);
+    return Scaffold(
+      body: SafeArea(
           child: (PageTransitionSwitcher(
-        transitionBuilder: (
-          child,
-          animation,
-          secondaryAnimation,
-        ) {
-          return SharedAxisTransition(
-              animation: animation,
-              secondaryAnimation: secondaryAnimation,
-              transitionType: SharedAxisTransitionType.horizontal,
-              child: child);
-        },
-        child: _widgetOptions.elementAt(_selected),
-      ))),
+              transitionBuilder: (
+                child,
+                animation,
+                secondaryAnimation,
+              ) {
+                return SharedAxisTransition(
+                    animation: animation,
+                    secondaryAnimation: secondaryAnimation,
+                    transitionType: SharedAxisTransitionType.horizontal,
+                    child: child);
+              },
+              child: _bodyWidget(_selected, _session)))),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

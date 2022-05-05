@@ -22,7 +22,7 @@ class SignInPhoneView extends StatefulWidget {
 }
 
 class _SignInPhonelView extends State<SignInPhoneView> {
-  //final RealApiService _realApiService = RealApiService();
+  final RealApiService _realApiService = RealApiService();
   final FakeApiService _fakeApiService = FakeApiService();
   late TextEditingController _textController;
   bool _validate = true;
@@ -46,23 +46,23 @@ class _SignInPhonelView extends State<SignInPhoneView> {
       setState(() {
         _validate = true;
       });
-      //_user = await _realApiService.signInBob(widget.phone);
-      _user = await _fakeApiService.signInBob('mentee_login');
+      _user = await _realApiService.signInBob(widget.phone);
+      //_user = await _fakeApiService.signInBob('mentee_login');
       Provider.of<Signup>(context, listen: false).phone = widget.phone;
-      Navigator.pushNamed(context, Routes.SIGNUP);
-      //if (_user.profile?.phone == widget.phone) {
-      //  //_jwt = await _realApiService.getJWT(_user.profile?.phone as String);
-      //  _jwt = await _fakeApiService.getJWT('token');
-      //  Provider.of<Session>(context, listen: false).user = _user;
-      //  Provider.of<Session>(context, listen: false).token = _jwt;
-      //  Navigator.pushNamedAndRemoveUntil(
-      //      context, Routes.SERVICE, (Route<dynamic> route) => false);
-      //} else if (_user.userId == null) {
-      //  Provider.of<Signup>(context, listen: false).phone = widget.phone;
-      //  Navigator.pushNamed(context, Routes.SIGNUP);
-      //} else {
-      //  throw Exception('phone not matched');
-      //}
+      //Navigator.pushNamed(context, Routes.SIGNUP);
+      if (_user.profile?.phone == widget.phone) {
+        //_jwt = await _realApiService.getJWT(_user.profile?.phone as String);
+        _jwt = await _fakeApiService.getJWT('token');
+        Provider.of<Session>(context, listen: false).user = _user;
+        Provider.of<Session>(context, listen: false).token = _jwt;
+        Navigator.pushNamedAndRemoveUntil(
+            context, Routes.SERVICE, (Route<dynamic> route) => false);
+      } else if (_user.userId == null) {
+        Provider.of<Signup>(context, listen: false).phone = widget.phone;
+        Navigator.pushNamed(context, Routes.SIGNUP);
+      } else {
+        throw Exception('phone not matched');
+      }
     } else {
       setState(() {
         _validate = false;

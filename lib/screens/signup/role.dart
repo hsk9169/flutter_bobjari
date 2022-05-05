@@ -38,6 +38,7 @@ class _SignupProfileRoleView extends State<SignupProfileRoleView> {
     var _jwt;
     var _user;
     _reqModel = SignupModel(
+      email: Provider.of<Signup>(context, listen: false).email,
       phone: Provider.of<Signup>(context, listen: false).phone,
       nickname: Provider.of<Signup>(context, listen: false).nickname,
       age: Provider.of<Signup>(context, listen: false).age,
@@ -48,7 +49,8 @@ class _SignupProfileRoleView extends State<SignupProfileRoleView> {
     Provider.of<Signup>(context, listen: false).show();
     _user = await _realApiService.signUpBob(_reqModel);
     if (_user.profile?.nickname == _reqModel.nickname) {
-      _jwt = await _realApiService.getJWT(_user.profile?.phone as String);
+      _jwt = await _realApiService
+          .getJWT(_user.profile?.phone ?? _user.profile?.email);
       Provider.of<Session>(context, listen: false).user = _user;
       Provider.of<Session>(context, listen: false).token = _jwt;
       Navigator.pushNamedAndRemoveUntil(

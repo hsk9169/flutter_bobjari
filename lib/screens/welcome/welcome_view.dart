@@ -78,34 +78,34 @@ class _WelcomeView extends State<WelcomeView> {
         print('카카오톡으로 로그인 실패 $error');
       }
     }
-    User _userInfo = await _kakaoService.getUserInfo();
-    if (_userInfo.hasSignedUp!) {
+    try {
+      User _userInfo = await _kakaoService.getUserInfo();
       print('사용자 정보 요청 성공'
           '\n회원번호: ${_userInfo.id}'
           '\n닉네임: ${_userInfo.kakaoAccount?.profile?.nickname}'
           '\n이메일: ${_userInfo.kakaoAccount?.email}');
-      // Real
-      //_user = await _realApiService
-      //    .signInKakao(_userInfo.kakaoAccount?.email ?? '');
-      //if (_user.profile?.email == _userInfo.kakaoAccount?.email) {
-      //  _jwt = await _realApiService.getJWT(_user.profile?.email);
-      //  Provider.of<Session>(context, listen: false).user = _user;
-      //  Provider.of<Session>(context, listen: false).token = _jwt;
-      //  Navigator.pushNamedAndRemoveUntil(
-      //      context, Routes.SERVICE, (Route<dynamic> route) => false);
-      //} else if (_user.userId == null) {
-      //  Provider.of<Signup>(context, listen: false).email =
-      //      _userInfo.kakaoAccount?.email ?? '';
-      //  Navigator.pushNamed(context, Routes.SIGNUP);
-      //} else {
-      //  throw Exception('email not matched');
-      //}
-      // Fake test
-      _user = await _fakeApiService.signInKakao('mentee_login');
-      Provider.of<Signup>(context, listen: false).email = _user.profile.email;
-      Navigator.pushNamed(context, Routes.SIGNUP);
-    } else {
-      print('조회 가능한 카카오 계정이 없습니다.');
+      //------------------------- Real
+      _user = await _realApiService
+          .signInKakao(_userInfo.kakaoAccount?.email ?? '');
+      if (_user.profile?.email == _userInfo.kakaoAccount?.email) {
+        _jwt = await _realApiService.getJWT(_user.profile?.email);
+        Provider.of<Session>(context, listen: false).user = _user;
+        Provider.of<Session>(context, listen: false).token = _jwt;
+        Navigator.pushNamedAndRemoveUntil(
+            context, Routes.SERVICE, (Route<dynamic> route) => false);
+      } else if (_user.userId == null) {
+        Provider.of<Signup>(context, listen: false).email =
+            _userInfo.kakaoAccount?.email ?? '';
+        Navigator.pushNamed(context, Routes.SIGNUP);
+      } else {
+        throw Exception('email not matched');
+      }
+      //------------------------- Fake test
+      //_user = await _fakeApiService.signInKakao('mentee_login');
+      //Provider.of<Signup>(context, listen: false).email = _user.profile.email;
+      //Navigator.pushNamed(context, Routes.SIGNUP);
+    } catch (err) {
+      print('조회 가능한 카카오 계정이 없습니다. $err');
       _bobjariSignIn();
     }
   }
@@ -116,7 +116,8 @@ class _WelcomeView extends State<WelcomeView> {
   }
 
   void _lookAround() {
-    Navigator.pushNamed(context, Routes.SERVICE);
+    Navigator.pushNamedAndRemoveUntil(
+        context, Routes.SERVICE, (Route<dynamic> route) => false);
   }
 
   @override

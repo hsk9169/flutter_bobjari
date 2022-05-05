@@ -12,7 +12,7 @@ class MenteeMetaModel {
       menteeId: json['mentee'],
       numNews: json['numNews'],
       searchKeyword: json['searchKeyword']
-          .map<String>((keyword) => keyword as String)
+          ?.map<String>((keyword) => keyword as String)
           .toList(),
     );
   }

@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
                 Routes.WELCOME: (context) => const WelcomeView(),
                 Routes.SERVICE: (context) => ServiceView(),
                 Routes.SIGNUP: (context) => SignupProfileNicknameView(),
+                Routes.SEARCH: (context) => SearchView(),
               },
               initialRoute: Routes.SPLASH,
             )));

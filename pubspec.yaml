@@ -51,6 +51,10 @@ dependencies:
   kakao_flutter_sdk: ^1.1.0
   kakao_flutter_sdk_user: ^1.1.0 # 카카오 로그인
   kakao_flutter_sdk_talk: ^1.1.0 # 카카오톡(소셜, 메시지)
+  firebase_core: ^1.7.0 # required for initializing firebase app
+  firebase_messaging: ^11.3.0 # required for sending/receiving messages through FCM
+  flutter_local_notifications: ^9.5.0 # required to show chat notifications
+  flutter_socket_io: ^0.6.0
 
 dev_dependencies:
   flutter_test:
