@@ -1,4 +1,3 @@
-import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -36,8 +35,8 @@ class _SignupProfileImageView extends State<SignupProfileImageView> {
   void _uploadImage(ImageSource source, BuildContext context) async {
     XFile? _imgFile = await _picker.pickImage(
       source: source,
-      maxHeight: MediaQuery.of(context).size.width * 0.2,
-      maxWidth: MediaQuery.of(context).size.width * 0.2,
+      maxHeight: MediaQuery.of(context).size.width * 0.35,
+      maxWidth: MediaQuery.of(context).size.width * 0.35,
     );
     Uint8List? _imgBytes = await _imgFile?.readAsBytes();
     print(_imgBytes?.length);

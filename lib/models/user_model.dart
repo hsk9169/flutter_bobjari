@@ -23,8 +23,17 @@ class UserModel {
     role = json['role'];
     createdAt = json['createdAt'];
     userId = json['id'];
-    mentor = MentorModel.fromJson(json['mentor']);
-    mentee = MenteeModel.fromJson(json['mentee']);
+    mentor = MentorModel.fromJsonUser(json['mentor']);
+    mentee = MenteeModel.fromJsonUser(json['mentee']);
+  }
+
+  UserModel.fromJsonBobjari(Map<String, dynamic> json) {
+    profile = ProfileModel.fromJson(json['profile']);
+    role = json['role'];
+    createdAt = json['createdAt'];
+    userId = json['id'];
+    mentor = null;
+    mentee = null;
   }
 
   Map<String, dynamic> toJson() => {

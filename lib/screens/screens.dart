@@ -13,3 +13,4 @@ export 'signup/gender.dart';
 export 'signup/age.dart';
 export 'signup/image.dart';
 export 'signup/role.dart';
+export 'search/search.dart';

@@ -22,8 +22,9 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
   //final RealApiService _apiService = RealApiService();
   final FakeApiService _apiService = FakeApiService();
   final TextEditingController _textController =
-      TextEditingController(text: '1234567890');
+      TextEditingController(text: '01045619502');
   bool _validate = false;
+  String _phone = '';
 
   @override
   void initState() {
@@ -45,6 +46,7 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
   void _textValidate() {
     if (_textController.text.length > 9) {
       setState(() {
+        _phone = _textController.text;
         _validate = true;
       });
     } else {
@@ -80,7 +82,7 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
           BasePadding(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
+              children: [
                 const TopTitle(titleText: ['등록된 전화번호로', '인증번호를 요청해주세요.']),
                 TextField(
                   decoration: const InputDecoration(hintText: '전화번호를 입력해주세요.'),

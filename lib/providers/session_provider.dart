@@ -3,8 +3,8 @@ import 'package:bobjari_proj/models/user_model.dart';
 import 'package:bobjari_proj/models/token_model.dart';
 
 class Session with ChangeNotifier {
-  late UserModel _user;
-  late TokenModel _token;
+  UserModel _user = UserModel();
+  TokenModel _token = TokenModel();
 
   UserModel get user => _user;
   TokenModel get token => _token;
@@ -17,5 +17,10 @@ class Session with ChangeNotifier {
   set token(TokenModel token) {
     _token = token;
     notifyListeners();
+  }
+
+  void show() {
+    _user.toJson();
+    _token.toJson();
   }
 }

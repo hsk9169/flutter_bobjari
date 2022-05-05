@@ -18,11 +18,12 @@ class BaseScrollerWithBack extends StatelessWidget {
       body: SafeArea(
           top: false,
           bottom: false,
-          child: SingleChildScrollView(
-              child: Column(children: [
-            child,
-            const Padding(padding: EdgeInsets.only(bottom: 100))
-          ]))),
+          child: Column(children: [
+            SingleChildScrollView(
+                child: Column(children: [
+              child,
+            ]))
+          ])),
       bottomSheet: bottomSheet,
     );
   }

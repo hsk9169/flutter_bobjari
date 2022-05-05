@@ -5,4 +5,5 @@ abstract class Routes {
   static const SIGNUP = '/signup';
   static const SIGNUP_MENTEE = '/signup/mentee';
   static const SIGNUP_MENTOR = '/signup/mentor';
+  static const SEARCH = '/service/search';
 }
