@@ -22,6 +22,7 @@ class _SearchView extends State<SearchView> {
   final RealApiService _apiService = RealApiService();
   //final FakeApiService _apiService = FakeApiService();
   final TextEditingController _textController = TextEditingController();
+  late FocusNode _textFocusNode;
   final List<String> _searchHistory = [];
   List<MentorModel> _searchResult = [];
   final String _searchIdx = '0';
@@ -31,11 +32,13 @@ class _SearchView extends State<SearchView> {
   void initState() {
     super.initState();
     _textController.addListener(_onChanged);
+    _textFocusNode = FocusNode();
   }
 
   @override
   void dispose() {
     _textController.dispose();
+    _textFocusNode.dispose();
     super.dispose();
   }
 
@@ -54,6 +57,7 @@ class _SearchView extends State<SearchView> {
     setState(() {
       _textController.text = '';
     });
+    _textFocusNode.requestFocus();
   }
 
   void _goBack() {
@@ -63,69 +67,74 @@ class _SearchView extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(children: [
-      Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(color: Colors.grey[200])),
-      Column(children: [
-        // Search, Sort, Filter
-        Container(
+        body: Container(
             decoration: const BoxDecoration(color: Colors.white),
             child: SafeArea(
                 top: true,
                 bottom: false,
-                child: Column(children: [
-                  TopBarSearch(
-                    press: _goBack,
-                    search: TextField(
-                        onSubmitted: (_value) {
-                          _onSearch(_value);
-                        },
-                        textAlignVertical: TextAlignVertical.center,
-                        autofocus: true,
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon: IconButton(
-                                padding: EdgeInsets.zero,
-                                constraints: const BoxConstraints(),
-                                icon: const Icon(Icons.cancel),
-                                color: Colors.grey,
-                                onPressed: _removeSearchInput),
-                            hintText: '직업명, 직군, 회사 등'),
-                        controller: _textController,
-                        keyboardType: TextInputType.text),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.all(
-                          MediaQuery.of(context).size.height * 0.01)),
-                  BasePadding(
-                      child: Column(children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: _renderKeywordHistory()),
-                    Padding(
-                        padding: EdgeInsets.all(
-                            MediaQuery.of(context).size.height * 0.01)),
-                    FilterMenu(),
-                  ]))
-                ]))),
-        // Mentor Search Results
-        Expanded(
-            child: SingleChildScrollView(
-                child: SizedBox(
-                    child: Column(children: [
-          Padding(
-              padding: EdgeInsets.all(BobSpaces.firstEgg),
-              child: Center(
-                  child: Column(
-                children: _renderSearchResult(),
-              )))
-        ]))))
-      ])
-    ]));
+                child: CustomScrollView(slivers: [
+                  SliverAppBar(
+                      automaticallyImplyLeading: false,
+                      pinned: false,
+                      snap: false,
+                      floating: true,
+                      backgroundColor: Colors.white,
+                      flexibleSpace: Container(
+                        decoration: const BoxDecoration(color: Colors.white),
+                        child: TopBarSearch(
+                          press: _goBack,
+                          search: TextField(
+                              onSubmitted: (_value) {
+                                _onSearch(_value);
+                              },
+                              textAlignVertical: TextAlignVertical.center,
+                              autofocus: true,
+                              focusNode: _textFocusNode,
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  prefixIcon: const Icon(Icons.search),
+                                  suffixIcon: IconButton(
+                                      padding: EdgeInsets.zero,
+                                      constraints: const BoxConstraints(),
+                                      icon: const Icon(Icons.cancel),
+                                      color: Colors.grey,
+                                      onPressed: _removeSearchInput),
+                                  hintText: '직업명, 직군, 회사 등'),
+                              controller: _textController,
+                              keyboardType: TextInputType.text),
+                        ),
+                      )),
+                  SliverToBoxAdapter(
+                      child: Padding(
+                          padding: EdgeInsets.only(
+                              left: BobSpaces.firstEgg,
+                              right: BobSpaces.firstEgg),
+                          child: Column(children: [
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: _renderKeywordHistory()),
+                            Padding(
+                                padding: EdgeInsets.all(
+                                    MediaQuery.of(context).size.height * 0.01)),
+                            FilterMenu()
+                          ]))
+                      //])
+                      ),
+                  SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                    return Stack(children: [
+                      Container(
+                          padding: _searchResult.isNotEmpty
+                              ? EdgeInsets.all(
+                                  MediaQuery.of(context).size.height * 0.03)
+                              : null,
+                          decoration: BoxDecoration(color: Colors.grey[200]),
+                          child: Column(children: _renderSearchResult()))
+                    ]);
+                  }, childCount: 1))
+                ]))));
   }
 
   List<Widget> _renderKeywordHistory() {

@@ -6,4 +6,5 @@ abstract class Routes {
   static const SIGNUP_MENTEE = '/signup/mentee';
   static const SIGNUP_MENTOR = '/signup/mentor';
   static const SEARCH = '/service/search';
+  static const CHAT_ROOM = '/service/bob/chat';
 }

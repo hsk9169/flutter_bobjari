@@ -4,6 +4,7 @@ import 'package:bobjari_proj/models/user_model.dart';
 import 'package:bobjari_proj/models/token_model.dart';
 import 'package:bobjari_proj/models/signup_model.dart';
 import 'package:bobjari_proj/models/bobjari_model.dart';
+import 'package:bobjari_proj/models/chat_model.dart';
 
 abstract class Api {
   // Node Server API list
@@ -17,4 +18,6 @@ abstract class Api {
   Future<List<BobjariModel>> bobjariList(String userId, String role);
   Future<List<MentorModel>> searchMentor(
       String keyword, String startIdx, String num);
+  Future<List<ChatModel>> chatList(
+      String bobjariId, String startIdx, String num);
 }

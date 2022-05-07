@@ -9,6 +9,7 @@ import 'package:bobjari_proj/services/api.dart';
 import 'package:bobjari_proj/models/user_model.dart';
 import 'package:bobjari_proj/models/bobjari_model.dart';
 import 'package:bobjari_proj/models/mentor/mentor.dart';
+import 'package:bobjari_proj/models/chat_model.dart';
 
 class RealApiService implements Api {
   @override
@@ -231,6 +232,34 @@ class RealApiService implements Api {
           .toList();
     } else {
       throw Exception('Failed to Get Mentor Search List');
+    }
+  }
+
+  @override
+  Future<List<ChatModel>> chatList(
+      String bobjariId, String startIdx, String num) async {
+    final res = await http.get(
+        Uri(
+            scheme: 'http',
+            host: 'localhost',
+            //host: '172.20.10.12',
+            port: 8000,
+            path: ApiCalls.getMessage,
+            queryParameters: {
+              'bobjariId': bobjariId,
+              'startIdx': startIdx,
+              'num': num,
+            }),
+        headers: {
+          HttpHeaders.authorizationHeader: 'Basic your_api_token_here',
+          'Content-Type': 'application/json; charset=utf-8',
+        });
+    if (res.statusCode == 200) {
+      return jsonDecode(res.body)
+          .map<ChatModel>((dynamic chat) => ChatModel.fromJson(chat))
+          .toList();
+    } else {
+      throw Exception('Failed to Get Chat List');
     }
   }
 }
