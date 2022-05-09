@@ -1,19 +1,19 @@
 class ChatModel {
   late String? message;
-  late String? chatId;
+  late String? date;
   late String? authorId;
 
-  ChatModel({this.message, this.chatId, this.authorId});
+  ChatModel({this.message, this.date, this.authorId});
 
   ChatModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    chatId = json['id'];
+    date = json['createdAt'];
     authorId = json['authorId'];
   }
 
   Map<String, dynamic> toJson() => {
         'message': message,
-        'chatId': chatId,
+        'date': date,
         'authorId': authorId,
       };
 }

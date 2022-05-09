@@ -4,10 +4,12 @@ class BaseScrollerWithBack extends StatelessWidget {
   final Widget child;
   final Widget appBar;
   final Widget? bottomSheet;
+  final Widget? bottomNav;
   const BaseScrollerWithBack({
     required this.child,
     required this.appBar,
     this.bottomSheet,
+    this.bottomNav,
   });
 
   @override
@@ -25,6 +27,7 @@ class BaseScrollerWithBack extends StatelessWidget {
             ]))
           ])),
       bottomSheet: bottomSheet,
+      bottomNavigationBar: bottomNav,
     );
   }
 }

@@ -26,6 +26,7 @@ class MentorModel {
 
   factory MentorModel.fromJsonBobjari(Map<String, dynamic> json) {
     return MentorModel(
+      id: json['_id'],
       career: CareerModel.fromJson(json['career']),
       title: json['title'],
       hashtags: json['hashtags']?.map<String>((tag) => tag as String).toList(),

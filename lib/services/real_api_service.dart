@@ -39,8 +39,8 @@ class RealApiService implements Api {
     final res = await http.post(
         Uri(
             scheme: 'http',
-            //host: '172.20.10.12',
-            host: 'localhost',
+            host: '172.20.10.12',
+            //host: 'localhost',
             port: 8000,
             path: ApiCalls.signinBob),
         headers: <String, String>{
@@ -179,8 +179,8 @@ class RealApiService implements Api {
     final res = await http.get(
       Uri(
         scheme: 'http',
-        host: 'localhost',
-        //host: '172.20.10.12',
+        //host: 'localhost',
+        host: '172.20.10.12',
         port: 8000,
         path: role == 'mentee'
             ? ApiCalls.getMenteeBobjari
@@ -193,7 +193,6 @@ class RealApiService implements Api {
         'Content-Type': 'application/json; charset=utf-8',
       },
     );
-    print(res.body);
     if (res.statusCode == 200) {
       return jsonDecode(res.body)
           .map<BobjariModel>((dynamic bobjari) => role == 'mentee'
@@ -241,8 +240,8 @@ class RealApiService implements Api {
     final res = await http.get(
         Uri(
             scheme: 'http',
-            host: 'localhost',
-            //host: '172.20.10.12',
+            //host: 'localhost',
+            host: '172.20.10.12',
             port: 8000,
             path: ApiCalls.getMessage,
             queryParameters: {
