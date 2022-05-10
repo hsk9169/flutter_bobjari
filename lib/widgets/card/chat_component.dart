@@ -34,9 +34,11 @@ class ChatComponentCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          image: Image.memory(Uri.parse(profileImage!)
-                                  .data!
-                                  .contentAsBytes())
+                          image: Image.memory(
+                                  Uri.parse(profileImage!)
+                                      .data!
+                                      .contentAsBytes(),
+                                  gaplessPlayback: true)
                               .image,
                           fit: BoxFit.cover,
                         ),
@@ -80,7 +82,7 @@ class ChatComponentCard extends StatelessWidget {
                       Padding(
                           padding: EdgeInsets.all(
                               MediaQuery.of(context).size.width * 0.003)),
-                      Text(statusString(status!),
+                      Text(_statusString(status!),
                           style: TextStyle(
                               color: Colors.black54,
                               fontSize:
@@ -109,7 +111,7 @@ class ChatComponentCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(dateTimeString(updatedAt!),
+                  Text(_dateTimeString(updatedAt!),
                       style: TextStyle(
                         color: Colors.black45,
                         fontSize: MediaQuery.of(context).size.width * 0.028,
@@ -119,7 +121,7 @@ class ChatComponentCard extends StatelessWidget {
         ]));
   }
 
-  String statusString(int _status) {
+  String _statusString(int _status) {
     switch (_status) {
       case 1:
         return '밥자리 응답 기다리는 중';
@@ -134,11 +136,10 @@ class ChatComponentCard extends StatelessWidget {
     }
   }
 
-  String dateTimeString(String _dt) {
+  String _dateTimeString(String _dt) {
     var _now = DateTime.now();
     var _last = DateTime.parse(_dt);
     var _lastDayOfMonth = DateTime(_now.year, _now.month, 0);
-
     String _ret = '';
     if (_now.year == _last.year && _now.month == _last.month) {
       if (_now.day == _last.day) {
@@ -155,10 +156,16 @@ class ChatComponentCard extends StatelessWidget {
       } else if (_now.day - _last.day == 1) {
         _ret = '어제';
       }
-    } else if (_lastDayOfMonth.year == _last.year &&
-        _lastDayOfMonth.month == _last.month &&
-        _lastDayOfMonth.day == _last.day) {
-      _ret = '어제';
+    } else if (_now.year == _last.year &&
+        _now.month - _last.month == 1 &&
+        _now.day == 1) {
+      if (_lastDayOfMonth.year == _last.year &&
+          _lastDayOfMonth.month == _last.month &&
+          _lastDayOfMonth.day == _last.day) {
+        _ret = '어제';
+      } else {
+        _ret = _last.month.toString() + '월 ' + _last.day.toString() + '일';
+      }
     } else if (_now.year - _last.year > 0) {
       _ret = _last.year.toString() +
           '.' +

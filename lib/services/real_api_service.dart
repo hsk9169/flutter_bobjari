@@ -193,7 +193,6 @@ class RealApiService implements Api {
         'Content-Type': 'application/json; charset=utf-8',
       },
     );
-    print(res.body);
     if (res.statusCode == 200) {
       return jsonDecode(res.body)
           .map<BobjariModel>((dynamic bobjari) => role == 'mentee'
