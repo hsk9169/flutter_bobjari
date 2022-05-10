@@ -22,6 +22,7 @@ class _SearchView extends State<SearchView> {
   final RealApiService _apiService = RealApiService();
   //final FakeApiService _apiService = FakeApiService();
   final TextEditingController _textController = TextEditingController();
+  late ScrollController _scrollController;
   late FocusNode _textFocusNode;
   final List<String> _searchHistory = [];
   List<MentorModel> _searchResult = [];
@@ -33,16 +34,32 @@ class _SearchView extends State<SearchView> {
     super.initState();
     _textController.addListener(_onChanged);
     _textFocusNode = FocusNode();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
   }
 
   @override
   void dispose() {
     _textController.dispose();
     _textFocusNode.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
   void _onChanged() {}
+
+  void _scrollListener() {
+    if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent &&
+        !_scrollController.position.outOfRange) {
+      print('bottom');
+    }
+    if (_scrollController.offset <=
+            _scrollController.position.minScrollExtent &&
+        !_scrollController.position.outOfRange) {
+      print('top');
+    }
+  }
 
   void _onSearch(String _val) async {
     List<MentorModel> _result =
@@ -72,7 +89,8 @@ class _SearchView extends State<SearchView> {
             child: SafeArea(
                 top: true,
                 bottom: false,
-                child: CustomScrollView(slivers: [
+                child:
+                    CustomScrollView(controller: _scrollController, slivers: [
                   SliverAppBar(
                       automaticallyImplyLeading: false,
                       pinned: false,
@@ -103,24 +121,29 @@ class _SearchView extends State<SearchView> {
                               controller: _textController,
                               keyboardType: TextInputType.text),
                         ),
+                      ),
+                      bottom: PreferredSize(
+                        child: Padding(
+                            padding: EdgeInsets.only(
+                                left: BobSpaces.firstEgg,
+                                right: BobSpaces.firstEgg),
+                            child: FilterMenu()),
+                        preferredSize: Size.fromHeight(
+                            MediaQuery.of(context).size.height * 0.12),
                       )),
+                  /*
                   SliverToBoxAdapter(
                       child: Padding(
-                          padding: EdgeInsets.only(
-                              left: BobSpaces.firstEgg,
-                              right: BobSpaces.firstEgg),
-                          child: Column(children: [
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: _renderKeywordHistory()),
-                            Padding(
-                                padding: EdgeInsets.all(
-                                    MediaQuery.of(context).size.height * 0.01)),
-                            FilterMenu()
-                          ]))
+                    padding: EdgeInsets.only(
+                        left: BobSpaces.firstEgg, right: BobSpaces.firstEgg),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: _renderKeywordHistory()),
+                  )
                       //])
                       ),
+                      */
                   SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {

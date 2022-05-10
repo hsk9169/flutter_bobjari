@@ -128,7 +128,7 @@ class _ChatRoom extends State<ChatRoom> {
             child: Padding(
                 padding: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.01,
-                  bottom: MediaQuery.of(context).size.height * 0.1,
+                  bottom: MediaQuery.of(context).size.height * 0.07,
                   left: MediaQuery.of(context).size.width * 0.03,
                   right: MediaQuery.of(context).size.width * 0.03,
                 ),
@@ -252,7 +252,8 @@ class _ChatRoom extends State<ChatRoom> {
                       image: Uri.parse(_image).data == null
                           ? dog
                           : Image.memory(
-                                  Uri.parse(_image).data!.contentAsBytes())
+                                  Uri.parse(_image).data!.contentAsBytes(),
+                                  gaplessPlayback: true)
                               .image,
                       fit: BoxFit.cover,
                     ),

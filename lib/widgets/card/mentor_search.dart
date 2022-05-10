@@ -37,10 +37,12 @@ class MentorSearchCard extends StatelessWidget {
                                             .profileImage!.data!)
                                         .data !=
                                     null
-                                ? Image.memory(Uri.parse(mentor.userDetail!
-                                            .profile!.profileImage!.data!)
-                                        .data!
-                                        .contentAsBytes())
+                                ? Image.memory(
+                                        Uri.parse(mentor.userDetail!.profile!
+                                                .profileImage!.data!)
+                                            .data!
+                                            .contentAsBytes(),
+                                        gaplessPlayback: true)
                                     .image
                                 : const AssetImage('assets/images/dog.png'),
                             fit: BoxFit.cover,

@@ -34,9 +34,11 @@ class ChatComponentCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          image: Image.memory(Uri.parse(profileImage!)
-                                  .data!
-                                  .contentAsBytes())
+                          image: Image.memory(
+                                  Uri.parse(profileImage!)
+                                      .data!
+                                      .contentAsBytes(),
+                                  gaplessPlayback: true)
                               .image,
                           fit: BoxFit.cover,
                         ),
