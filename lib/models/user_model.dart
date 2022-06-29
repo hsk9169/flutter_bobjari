@@ -4,6 +4,7 @@ import 'package:bobjari_proj/models/mentee/mentee.dart';
 
 class UserModel {
   late ProfileModel? profile;
+  late String? deviceToken;
   late String? role;
   late String? createdAt;
   late String? userId;
@@ -12,6 +13,7 @@ class UserModel {
 
   UserModel(
       {this.profile,
+      this.deviceToken,
       this.role,
       this.createdAt,
       this.userId,
@@ -19,19 +21,27 @@ class UserModel {
       this.mentee});
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    profile = ProfileModel.fromJson(json['profile']);
-    role = json['role'];
-    createdAt = json['createdAt'];
-    userId = json['id'];
-    mentor = MentorModel.fromJsonUser(json['mentor']);
-    mentee = MenteeModel.fromJsonUser(json['mentee']);
+    profile =
+        json['profile'] != null ? ProfileModel.fromJson(json['profile']) : null;
+    deviceToken = json['deviceToken'] != null ? json['deviceToken'] : null;
+    role = json['role'] != null ? json['role'] : null;
+    createdAt = json['createdAt'] != null ? json['createdAt'] : null;
+    userId = json['id'] != null ? json['id'] : null;
+    mentor = json['mentor'] != null
+        ? MentorModel.fromJsonUser(json['mentor'])
+        : null;
+    mentee = json['mentee'] != null
+        ? MenteeModel.fromJsonUser(json['mentee'])
+        : null;
   }
 
   UserModel.fromJsonBobjari(Map<String, dynamic> json) {
-    profile = ProfileModel.fromJson(json['profile']);
-    role = json['role'];
-    createdAt = json['createdAt'];
-    userId = json['id'];
+    profile =
+        json['profile'] != null ? ProfileModel.fromJson(json['profile']) : null;
+    deviceToken = json['deviceToken'] != null ? json['deviceToken'] : null;
+    role = json['role'] != null ? json['role'] : null;
+    createdAt = json['createdAt'] != null ? json['createdAt'] : null;
+    userId = json['id'] != null ? json['id'] : null;
     mentor = null;
     mentee = null;
   }

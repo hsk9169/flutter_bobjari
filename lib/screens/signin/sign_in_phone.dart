@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:bobjari_proj/providers/signup_provider.dart';
 import 'package:bobjari_proj/providers/session_provider.dart';
 import 'package:bobjari_proj/widgets/big_button.dart';
-import 'package:bobjari_proj/widgets/base_scroller_with_back.dart';
+import 'package:bobjari_proj/widgets/signup_form.dart';
 import 'package:bobjari_proj/widgets/base_padding.dart';
 import 'package:bobjari_proj/widgets/topbar_back.dart';
 import 'package:bobjari_proj/widgets/top_title.dart';
@@ -25,12 +25,14 @@ class _SignInPhonelView extends State<SignInPhoneView> {
   final RealApiService _realApiService = RealApiService();
   final FakeApiService _fakeApiService = FakeApiService();
   late TextEditingController _textController;
-  bool _validate = true;
+  bool _validate = false;
 
   @override
   void initState() {
     super.initState();
     _textController = TextEditingController(text: widget.authNum);
+    _textValidate();
+    _textController.addListener(_onChange);
   }
 
   @override
@@ -39,34 +41,41 @@ class _SignInPhonelView extends State<SignInPhoneView> {
     super.dispose();
   }
 
-  void _signInPhone() async {
-    var _jwt;
-    var _user;
+  void _onChange() {
+    _textValidate();
+  }
+
+  void _textValidate() {
     if (widget.authNum == _textController.text) {
       setState(() {
         _validate = true;
       });
-      _user = await _realApiService.signInBob(widget.phone);
-      //_user = await _fakeApiService.signInBob('mentee_login');
-      Provider.of<Signup>(context, listen: false).phone = widget.phone;
-      //Navigator.pushNamed(context, Routes.SIGNUP);
-      if (_user.profile?.phone == widget.phone) {
-        //_jwt = await _realApiService.getJWT(_user.profile?.phone as String);
-        _jwt = await _fakeApiService.getJWT('token');
-        Provider.of<Session>(context, listen: false).user = _user;
-        Provider.of<Session>(context, listen: false).token = _jwt;
-        Navigator.pushNamedAndRemoveUntil(
-            context, Routes.SERVICE, (Route<dynamic> route) => false);
-      } else if (_user.userId == null) {
-        Provider.of<Signup>(context, listen: false).phone = widget.phone;
-        Navigator.pushNamed(context, Routes.SIGNUP);
-      } else {
-        throw Exception('phone not matched');
-      }
     } else {
       setState(() {
         _validate = false;
       });
+    }
+  }
+
+  void _signInPhone() async {
+    var _jwt;
+    var _user;
+
+    _user = await _realApiService.signInBob(widget.phone);
+    //_user = await _fakeApiService.signInBob('mentee_login');
+    Provider.of<Signup>(context, listen: false).phone = widget.phone;
+    if (_user.profile?.phone == widget.phone) {
+      //_jwt = await _realApiService.getJWT(_user.profile?.phone as String);
+      _jwt = await _fakeApiService.getJWT('token');
+      Provider.of<Session>(context, listen: false).user = _user;
+      Provider.of<Session>(context, listen: false).token = _jwt;
+      Navigator.pushNamedAndRemoveUntil(
+          context, Routes.SERVICE, (Route<dynamic> route) => false);
+    } else if (_user.userId == null) {
+      Provider.of<Signup>(context, listen: false).phone = widget.phone;
+      Navigator.pushNamed(context, Routes.SIGNUP);
+    } else {
+      throw Exception('phone not matched');
     }
   }
 
@@ -76,39 +85,38 @@ class _SignInPhonelView extends State<SignInPhoneView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScrollerWithBack(
-        appBar: TopBarBack(press: _goBack),
+    return SignupForm(
+        isbasePadding: false,
+        topTitle: const ['휴대전화로 받은', '인증번호를 입력해주세요.'],
+        pressBack: _goBack,
         child: Column(children: [
           BasePadding(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const TopTitle(titleText: ['휴대전화로 받은', '인증번호를 입력해주세요.']),
                 TextField(
                   decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    hintText: '인증번호 입력',
-                    errorText: !_validate ? '인증번호가 맞지 않습니다.' : null,
-                  ),
+                      border: const OutlineInputBorder(),
+                      hintText: '인증번호 입력',
+                      errorText: !_validate ? '인증번호가 맞지 않습니다.' : null,
+                      suffixIcon: IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                          icon: const Icon(Icons.cancel),
+                          color: Colors.grey,
+                          onPressed: () => setState(() {
+                                _textController.text = '';
+                              }))),
                   controller: _textController,
                   keyboardType: TextInputType.number,
+                  autofocus: true,
                 ),
               ],
             ),
           )
         ]),
-        bottomSheet: BasePadding(
-            child: Padding(
-                padding: const EdgeInsets.only(bottom: 30),
-                child: SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: BigButton(
-                        btnColor: Colors.black,
-                        title: '인증번호 확인',
-                        txtColor: Colors.white,
-                        press: () {
-                          _signInPhone();
-                        })))));
+        btn1Title: '인증번호 확인',
+        btn1Color: Colors.black,
+        pressBtn1: _validate ? _signInPhone : null);
   }
 }

@@ -1,0 +1,242 @@
+{
+        "business_status": "OPERATIONAL",
+        "formatted_phone_number": "02-706-9356",
+        "geometry": {
+            "location": {
+                "lat": 37.54137720000001,
+                "lng": 126.9623687
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 37.54272618029151,
+                    "lng": 126.9637176802915
+                },
+                "southwest": {
+                    "lat": 37.54002821970851,
+                    "lng": 126.9610197197085
+                }
+            }
+        },
+        "opening_hours": {
+            "open_now": true,
+            "periods": [
+                {
+                    "close": {
+                        "day": 0,
+                        "time": "1900"
+                    },
+                    "open": {
+                        "day": 0,
+                        "time": "0800"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 1,
+                        "time": "1900"
+                    },
+                    "open": {
+                        "day": 1,
+                        "time": "0800"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 2,
+                        "time": "1900"
+                    },
+                    "open": {
+                        "day": 2,
+                        "time": "0800"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 3,
+                        "time": "1900"
+                    },
+                    "open": {
+                        "day": 3,
+                        "time": "0800"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 4,
+                        "time": "1900"
+                    },
+                    "open": {
+                        "day": 4,
+                        "time": "0800"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 5,
+                        "time": "1900"
+                    },
+                    "open": {
+                        "day": 5,
+                        "time": "0800"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 6,
+                        "time": "1900"
+                    },
+                    "open": {
+                        "day": 6,
+                        "time": "0800"
+                    }
+                }
+            ],
+            "weekday_text": [
+                "월요일: 오전 8:00 ~ 오후 7:00",
+                "화요일: 오전 8:00 ~ 오후 7:00",
+                "수요일: 오전 8:00 ~ 오후 7:00",
+                "목요일: 오전 8:00 ~ 오후 7:00",
+                "금요일: 오전 8:00 ~ 오후 7:00",
+                "토요일: 오전 8:00 ~ 오후 7:00",
+                "일요일: 오전 8:00 ~ 오후 7:00"
+            ]
+        },
+        "photos": [
+            {
+                "height": 2988,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/111248486244811888553\">Kyung-Jun Lee</a>"
+                ],
+                "photo_reference": "Aap_uEByvByFZ33FIZRDiulZFlRTMhB3k3pSLRdtYHWt-Y1H4eUVkcQlaEUqJFTlp9fW4fgK6O3Ght-xKh79R4xggRDOeNe6Kxmx_jvSv16ldFmD7BROYVj6tHK8d7Fj2ED-C0VGIS29X1qba8_PxLYP9Z5e9nS8mK1b_G1gE6VDpJ8dqbS0",
+                "width": 5312
+            },
+            {
+                "height": 1816,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/104606452616375847754\">Marcus Odin</a>"
+                ],
+                "photo_reference": "Aap_uEA8IUK4bd5BHz9MB6dhHq9MNLqaHA50FDhkxwzfKLT_BtwtOllNDQx37fN7L_alydsJWXH3Ej2mtSWpVkXTLzPxFyfloBfHN061ym_HLsvEX6LAQnE4bJxDFfeH4biNpzcirCMPdnxaAJqLQJUv1dT1ESDoOIv3jRcz3ObwaGBLn9D_",
+                "width": 2972
+            },
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114683900938451880349\">SUNGHYE AHN</a>"
+                ],
+                "photo_reference": "Aap_uEANQYzVPe6VSW-pRRlnTWswdTeAj0fAFTKGpffcvXUnUHSyOLw4NP_zU3KS5HOOclkv0zzuFbxSTQHSUicXhw6Euaqfht0s6QU7IYSxUA9QVi0_pT5qovMwJ5Sr9nvtYgsz9ERFoTX5FQwIjoVYJiPMTM6aNRP6ZYrkRYu9ssxhvCgM",
+                "width": 3000
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112053176301654467732\">TH Kim</a>"
+                ],
+                "photo_reference": "Aap_uEDAd8otXVs4baI7nt-jptM3vqy8GbLTdHVySafAx0PFyrN3Azfd4l963_G-sIU5yorn-jjk72HFmJM2EMU3ng0NUa5bcdbkjhO--YX3d5SgJvSIkfKrR-zmLzV3T2E-OnMZ4dxNLuYwkyVlnt4Mb0oqpbpad6HsONq7eNjIutQIwl2C",
+                "width": 4032
+            },
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/103478299225009231865\">김정란</a>"
+                ],
+                "photo_reference": "Aap_uEBzJJ6C2pqFQn0wCx4wvwTO4ZBXixevQn9JqAsHNS2tL5wVSfo78tGkCLBAm5tGBxDO3sQanDQ81fnj8WO-N_lr6dWFXHNpQfjb73Ol0pA_JpVwxV2JJKdzZbWaWogfP-ydq5LuOkVLiB2aC_Hdjay9bBjvIQjf9FERiqBTcmfLTydi",
+                "width": 3000
+            },
+            {
+                "height": 1679,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/104606452616375847754\">Marcus Odin</a>"
+                ],
+                "photo_reference": "Aap_uECxXd1YTi2MLLdahsUSd5AvJ_WXZfPsRsisIwnxIe95kEOaJv8BelnDwgmIov2kOtnalQLWinw6PgZq4-HuZTpA5aVEeJB9p9B_Q50cBAFWXIar8lsqUdfREuNtoGb8LF50mJghxGUJxEwbvzOXE1MhmmLnPRptg47Q901bvgqU5cYA",
+                "width": 1864
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/105809766197110661205\">H.O Lee</a>"
+                ],
+                "photo_reference": "Aap_uEDar6RWl3jUOR_Ueh6SrRgygepX7uZNS3werUHoQ7yD79MdvAAmb9jeWEqOubQoCPTmbhewa0fF3XZHzFxI90Lck190Ny8SDg3i_UUqbzSo3i4LABxzDYm3NVdeW-Qs-xf0vx8zBei-OV0k4hRMre1hw_UQZDpQ9bMQm4Nxa2tBCien",
+                "width": 4032
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/110778779454043925617\">Kyuwon Lee</a>"
+                ],
+                "photo_reference": "Aap_uECpjtgKqWY6Z-ygbhtPz7qCkNRv_hh-dGqTgY0-dr7hsUg5aMTJv00GHyuB7sEVoEfX4HpZDIzMLsqmpI-PUJFYW4SIPU8XixJzfooGxnZR1CdGsFeox--7FaslNhapWy8EP_JFYnkwOOsXhxeNQFH_LB8XrWLXVwij9WHLudN4q5Um",
+                "width": 3024
+            },
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114683900938451880349\">SUNGHYE AHN</a>"
+                ],
+                "photo_reference": "Aap_uEBzJJRS2O-zNJSbvvPsLHJR3Doq91UvVzoLhm6rBcFWT3l0BjVUPloMF1OrtAHl4FFYhfRSV9hHzBHsFzQrWHHgO6zPtKmk--M-Cg2y4RtKCUTq-szX2LH38ZzN6vtKQEhb7sfRv15NoYtOMm_bGdV84dRkZZlEBS1AGDQZu9qfSitm",
+                "width": 3000
+            },
+            {
+                "height": 1125,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100903077602631775888\">YN Kim</a>"
+                ],
+                "photo_reference": "Aap_uEARX--IM9DZSGICDQPyoEwiphPTVwT0o_nQBic_cazTJ53ZqtGNskZTWttodK9M4bqKKLqsh5_EeLIGKe99xXisgHJ9AkSKOF96BSySnJdNEq3QVsvVK9al6QK8e50wyQ-2plr6hneK74AuniawZqdK0AwOJZLnCfK8VfgO5qdYfCrb",
+                "width": 1125
+            }
+        ],
+        "price_level": 2,
+        "rating": 4.3,
+        "reviews": [
+            {
+                "author_name": "피고파",
+                "author_url": "https://www.google.com/maps/contrib/100228135424558656361/reviews",
+                "language": "ko",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14Gh6lqK1pD6J3lM8V9VnVNscMyQSnYpwQ4ZarvbNzw=s128-c0x00000000-cc-rp-mo",
+                "rating": 4,
+                "relative_time_description": "1년 전",
+                "text": "맛있지만 가격이 싸지 않음",
+                "time": 1599525819
+            },
+            {
+                "author_name": "KHONG SAO",
+                "author_url": "https://www.google.com/maps/contrib/116161510580479437302/reviews",
+                "language": "ko",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJzYI2c9XLR-gKBNF_dQyNo5OUFymO4hiY4-f4O3=s128-c0x00000000-cc-rp-mo",
+                "rating": 3,
+                "relative_time_description": "2달 전",
+                "text": "빵종류가 많습니다. 다만 배달앱이 계속 울리고 배달하시는 분들이 계속 오시고 정신이 없고 시끄러워서  대화하기는 적당하지 않네요",
+                "time": 1647145403
+            },
+            {
+                "author_name": "국윤승",
+                "author_url": "https://www.google.com/maps/contrib/107852362272656218312/reviews",
+                "language": "ko",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJz9QZzqDCudugr8akci3QeGW9Dc4530lsW4GW5d=s128-c0x00000000-cc-rp-mo-ba4",
+                "rating": 3,
+                "relative_time_description": "4달 전",
+                "text": "화려하지않은 외관, 그러나 깔끔한 실내인테리어에 의외로 손님이 항상 많음. 빵이 맛있는 맛집.",
+                "time": 1643044169
+            },
+            {
+                "author_name": "Shu Kang",
+                "author_url": "https://www.google.com/maps/contrib/103338932108575216392/reviews",
+                "language": "ko",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJzVIGE3pFayHFqOTO6cxjNHvMqxEUH0j2l-357G=s128-c0x00000000-cc-rp-mo",
+                "rating": 4,
+                "relative_time_description": "2달 전",
+                "text": "뭘 집어도 실패가 거의 없는 맛있는 집.특색있는 빵들도 있음\n빵맛은 별 5개인데\n바빠서 그런가 종종 불친절한 경우가 있어 별하나 뺐음.\n\n갈레트와 샌드위치가 특히 인기가 많은데 확실히 퀄리티가 좋다.\n개인적으로 갈레트브루통을 제일 좋아함.",
+                "time": 1648899675
+            },
+            {
+                "author_name": "이빛나",
+                "author_url": "https://www.google.com/maps/contrib/113620940831869032301/reviews",
+                "language": "ko",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJz8vDkWmrWOAqB_WMEPCrqvMEvIhHQNVlFkzHcl=s128-c0x00000000-cc-rp-mo-ba3",
+                "rating": 4,
+                "relative_time_description": "1달 전",
+                "text": "건강하고 맛있는 빵들~ 일반 빵집에서 안파는 빵 종류도 많고 꼭 하나씩 다 맛볼거에요.",
+                "time": 1651111956
+            }
+        ],
+        "url": "https://maps.google.com/?cid=1277482279390398983",
+        "user_ratings_total": 489
+    }

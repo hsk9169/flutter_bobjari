@@ -6,8 +6,10 @@ import './like_bob.dart';
 import './my_bob.dart';
 
 class BobView extends StatefulWidget {
-  const BobView({Key? key, required this.session}) : super(key: key);
+  const BobView({Key? key, required this.session, required this.tabNum})
+      : super(key: key);
   final session;
+  final int tabNum;
 
   @override
   State<StatefulWidget> createState() => _BobView();
@@ -18,7 +20,8 @@ class _BobView extends State<BobView> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController =
+        TabController(length: 2, vsync: this, initialIndex: widget.tabNum);
     super.initState();
   }
 
@@ -65,10 +68,10 @@ class _BobView extends State<BobView> with TickerProviderStateMixin {
                 controller: _tabController,
               )),
           SizedBox(
-              height: 550,
+              height: MediaQuery.of(context).size.height * 0.65,
               child: TabBarView(controller: _tabController, children: [
-                BasePadding(child: MyBob(session: widget.session)),
-                BasePadding(child: LikeBob(session: widget.session)),
+                MyBob(session: widget.session),
+                LikeBob(session: widget.session),
               ])),
         ]));
   }

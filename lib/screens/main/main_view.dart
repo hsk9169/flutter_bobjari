@@ -19,6 +19,7 @@ class _MainView extends State<MainView> {
   Timer? _timer;
   final PageController _pController = PageController(initialPage: 0);
   int _curCardIdx = 0;
+  var _isSearchbarTapped = false;
 
   @override
   void initState() {
@@ -130,8 +131,26 @@ class _MainView extends State<MainView> {
           ]),
           const Padding(padding: EdgeInsets.all(10)),
           GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () => _moveToSearch(),
+              onTapDown: (details) {
+                setState(() {
+                  _isSearchbarTapped = true;
+                });
+              },
+              onTapUp: (details) {
+                Future.delayed(const Duration(milliseconds: 100), () {
+                  setState(() {
+                    _isSearchbarTapped = false;
+                  });
+                  _moveToSearch();
+                });
+              },
+              onTapCancel: () {
+                Future.delayed(const Duration(milliseconds: 100), () {
+                  setState(() {
+                    _isSearchbarTapped = false;
+                  });
+                });
+              },
               child: Container(
                   decoration: BoxDecoration(
                       border: Border.all(color: BobColors.mainColor, width: 3),
@@ -146,9 +165,11 @@ class _MainView extends State<MainView> {
                     const Padding(padding: EdgeInsets.all(3)),
                     Text('직업인 찾아보기',
                         style: TextStyle(
-                            color: Colors.grey,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.02))
+                            color: _isSearchbarTapped
+                                ? Colors.grey[300]
+                                : Colors.grey[600],
+                            fontSize: MediaQuery.of(context).size.height * 0.02,
+                            fontWeight: FontWeight.bold))
                   ])))
         ]));
   }

@@ -1,0 +1,1030 @@
+[
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 관철동 우정국로2길 10",
+            "geometry": {
+                "location": {
+                    "lat": 37.569349,
+                    "lng": 126.9836087
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57069882989271,
+                        "lng": 126.9849585298927
+                    },
+                    "southwest": {
+                        "lat": 37.56799917010727,
+                        "lng": 126.9822588701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "카페 종로시장",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103111493375668886750\">고석태</a>"
+                    ],
+                    "photo_reference": "Aap_uEA3Zmm2Rw5l0UkxKW2h1EqSWu9Zxtd7Dupej_yZOtq28LQb_FpS9Locf1bd3xfnoxP8oDD1YsSa-JQeqEYxi60TFcqlO3VMTN0SnNpA2NsTmoxd955J5XVS2E5tGupdFA0tP8eY4yY3TQzXoXSME8VOuYPlL25m98VWme0LTAOOfGwq",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJaX-o1aCjfDURyf5Hc1lZZp4",
+            "plus_code": {
+                "compound_code": "HX9M+PC 서울특별시",
+                "global_code": "8Q98HX9M+PC"
+            },
+            "rating": 4.5,
+            "reference": "ChIJaX-o1aCjfDURyf5Hc1lZZp4",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 45
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 공평동 우정국로 26",
+            "geometry": {
+                "location": {
+                    "lat": 37.571908,
+                    "lng": 126.98353
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57325782989273,
+                        "lng": 126.9848798298927
+                    },
+                    "southwest": {
+                        "lat": 37.57055817010728,
+                        "lng": 126.9821801701072
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "카페 결",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105666349569095800048\">안세환</a>"
+                    ],
+                    "photo_reference": "Aap_uEAo_rPuFqo-vEWTc3VOh2shJz9N80IkXZhfVLiLkAdByF-yCT43A9RaucAO6FhTJtBQ0l4cL2mZvjQQUnFT_CSPo9gzD-boQrV2SPVbrZUk9KqzCkvLcG9dWYee90_kDk9R3qgXk9QR3WZ_YM0F-ItSGFkmnsoJ8hUGe1D-cmLsiH73",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJI6FKRTGjfDURniM2Z92eWjM",
+            "plus_code": {
+                "compound_code": "HXCM+QC 서울특별시",
+                "global_code": "8Q98HXCM+QC"
+            },
+            "rating": 4.5,
+            "reference": "ChIJI6FKRTGjfDURniM2Z92eWjM",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 263
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1층 102호, 6 종로2가 종로구 서울특별시",
+            "geometry": {
+                "location": {
+                    "lat": 37.5707075,
+                    "lng": 126.9835766
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57205732989271,
+                        "lng": 126.9849264298927
+                    },
+                    "southwest": {
+                        "lat": 37.56935767010727,
+                        "lng": 126.9822267701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "까치화방 종로점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5520,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105612668550140494702\">Jorge Seperizza</a>"
+                    ],
+                    "photo_reference": "Aap_uEDBy33F-OtjqbiU_dUlUvERMjX-SuxiuNHcF_DQCvbPdFCmcrKV5y6RR7NUK7XVxItzq7SCWiXlbzFXAo7krD1n09ywzs2yZJNZt63LShrFgki-d3XOad5g8J2Ho-CIR2TGwogk9cYSANxAoZtaerMGNVqvE-Sys_oVt1SSkr7kzxEZ",
+                    "width": 4140
+                }
+            ],
+            "place_id": "ChIJj3JHHemifDURXTj-VqNUbDI",
+            "plus_code": {
+                "compound_code": "HXCM+7C 서울특별시",
+                "global_code": "8Q98HXCM+7C"
+            },
+            "rating": 4.4,
+            "reference": "ChIJj3JHHemifDURXTj-VqNUbDI",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 92
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 삼일대로 388-7",
+            "geometry": {
+                "location": {
+                    "lat": 37.569214,
+                    "lng": 126.9882438
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57056382989272,
+                        "lng": 126.9895936298927
+                    },
+                    "southwest": {
+                        "lat": 37.56786417010728,
+                        "lng": 126.9868939701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "그레인바운더리 종로",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113594597389632504857\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEA1xdr-p3bmI0GMmShwrbXuFr0y1MG2Vt0YdVXBCCyA1peesmIuSt2vzXhxGor3Y3V4Jmb7re70cJGFciKDieEdXggcaOABSb0FAaTeDejGmuceiXVLiiKiINeg-pvZI88scJJZFl9n2lzKNF-UDJYmeWbGdKT3BEA4wEpAo44ET44a",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ5zhMTuaifDUR1bnAZnnpL3M",
+            "plus_code": {
+                "compound_code": "HX9Q+M7 서울특별시",
+                "global_code": "8Q98HX9Q+M7"
+            },
+            "rating": 4.3,
+            "reference": "ChIJ5zhMTuaifDUR1bnAZnnpL3M",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 120
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 우정국로2길 41",
+            "geometry": {
+                "location": {
+                    "lat": 37.5696282,
+                    "lng": 126.9853742
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57097802989272,
+                        "lng": 126.9867240298927
+                    },
+                    "southwest": {
+                        "lat": 37.56827837010728,
+                        "lng": 126.9840243701072
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "폴루이트",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3464,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110566064834845990325\">ErikA DD</a>"
+                    ],
+                    "photo_reference": "Aap_uECbs6pfteP0Th_-euiPMMIRfEyyU-wKNtu6EzjhDOg2h0gu2uti4RnTY2YiiAxYEBJtv7ABjvrvDE8bmooWHPUn-nM1GMSJjU-lfJgZn7gNF0X5f44_rbmCMKZh7QC-MnJGIi_yEBQIPDFU6-6fe9AIZKtFvrS2Q3wydwtQgWP9T1-V",
+                    "width": 4618
+                }
+            ],
+            "place_id": "ChIJhRlwluiifDUR4IMqTNggbJI",
+            "plus_code": {
+                "compound_code": "HX9P+V4 서울특별시",
+                "global_code": "8Q98HX9P+V4"
+            },
+            "rating": 4.5,
+            "reference": "ChIJhRlwluiifDUR4IMqTNggbJI",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 81
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 삼일대로17길 23",
+            "geometry": {
+                "location": {
+                    "lat": 37.569031,
+                    "lng": 126.986117
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57038082989273,
+                        "lng": 126.9874668298927
+                    },
+                    "southwest": {
+                        "lat": 37.56768117010728,
+                        "lng": 126.9847671701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "반쥴",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103291643428403214097\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAdTMx3u_4RCnH7d4FRFQlQftxgrdrGBwKW7jthFCmbBQJZiOqc5Ie1-RQqmuCgTJyxOaYI8JGeDzATnNLYzNGbaySmnCY0M4XRWV4JvpgH6mZua2QBOErZjVPMtM4GQVXl-IhsSxr1Ly_tREtsbG5aywN_aeInIhEF9WF9YqpQhZHE",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJPyUeoeiifDURWsRVI6DoUow",
+            "plus_code": {
+                "compound_code": "HX9P+JC 서울특별시",
+                "global_code": "8Q98HX9P+JC"
+            },
+            "rating": 4.4,
+            "reference": "ChIJPyUeoeiifDURWsRVI6DoUow",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 288
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 관철동 종로8길 5",
+            "geometry": {
+                "location": {
+                    "lat": 37.569743,
+                    "lng": 126.9840444
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57109282989271,
+                        "lng": 126.9853942298927
+                    },
+                    "southwest": {
+                        "lat": 37.56839317010727,
+                        "lng": 126.9826945701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "노우즈 X 오우야 에스프레소바 종로점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2600,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115839560440026056723\">Chanho Andrew Kim</a>"
+                    ],
+                    "photo_reference": "Aap_uEDbMf7WgqK0V44N1kGp4owb0kRuc09EKfuIL6Lk44meb27SVCYZmXBXTJpgHQrDaaP9D3FgdHUf1WL21AiEG1O_MUsrnCKcF8uRdk8BpPP8CWOwWDz1YyWUQC5-yuuYzt2jbyVzXJ1S2-lTkUvoxVvmvVfd67mqE7fSJPD0P5v0AAwi",
+                    "width": 4624
+                }
+            ],
+            "place_id": "ChIJGbxdYvWjfDURzjMsULraYxE",
+            "plus_code": {
+                "compound_code": "HX9M+VJ 서울특별시",
+                "global_code": "8Q98HX9M+VJ"
+            },
+            "rating": 4.7,
+            "reference": "ChIJGbxdYvWjfDURzjMsULraYxE",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 29
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 종로 80 1~5층",
+            "geometry": {
+                "location": {
+                    "lat": 37.5699077,
+                    "lng": 126.9862078
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57125752989273,
+                        "lng": 126.9875576298927
+                    },
+                    "southwest": {
+                        "lat": 37.56855787010728,
+                        "lng": 126.9848579701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "카페 드람브르",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2252,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103758377581111387721\">Young Man Kang</a>"
+                    ],
+                    "photo_reference": "Aap_uED8vsq4x2wTa01YRE_8JhklgQ8umvGO0foxBOB2GS2-Rb81hOfUG1o7S-eHiV_BNPfgMoZkpdb3jpqzovZJQzx95fyiH2zwMDBH8z8CBmuMzHYRSv4WoQ7ZseJ4RodkGJC58zyK3pn-XJFb_dLgb6SOixxghUG9BP2gH0X_XyP29XEk",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJYcP6guiifDURZ5-jSytD0XM",
+            "plus_code": {
+                "compound_code": "HX9P+XF 서울특별시",
+                "global_code": "8Q98HX9P+XF"
+            },
+            "rating": 4.3,
+            "reference": "ChIJYcP6guiifDURZ5-jSytD0XM",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 135
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 종로 51",
+            "geometry": {
+                "location": {
+                    "lat": 37.5707075,
+                    "lng": 126.9835766
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57205732989271,
+                        "lng": 126.9849264298927
+                    },
+                    "southwest": {
+                        "lat": 37.56935767010727,
+                        "lng": 126.9822267701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "스타벅스 더종로R점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118155251276790005207\">연재욱</a>"
+                    ],
+                    "photo_reference": "Aap_uECL5OfOhKNUlxGErufFU4JzGH-SLGCa7qskESRB5ozNNUqZJ-AEgOJrMfx9HxprZN-wCvIQKg6BRZhlKEGOTHYLYjmJ8zU68pu9s89GbMpQVz4d2zzQMnWqWmd7OZMILqQKlAOEV-cvWMLRuR7H4RTwbshIpsmhgukBy7dIBTgYd1QG",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJj3JHHemifDURGeGj8ddIino",
+            "plus_code": {
+                "compound_code": "HXCM+7C 서울특별시",
+                "global_code": "8Q98HXCM+7C"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJj3JHHemifDURGeGj8ddIino",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 1893
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 관철동 5-8 카페 뎀셀브즈",
+            "geometry": {
+                "location": {
+                    "lat": 37.5691757,
+                    "lng": 126.9879382
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57052552989272,
+                        "lng": 126.9892880298927
+                    },
+                    "southwest": {
+                        "lat": 37.56782587010728,
+                        "lng": 126.9865883701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "카페 뎀셀브즈",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3120,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107687914613722552863\">SON JIHYE</a>"
+                    ],
+                    "photo_reference": "Aap_uEAfmcztNYMj4il90O-LQOpLss9AqbOTYvTJNcHqegzknPiwwyMp8PKqoAzj1m-9MvOgQdKKP_BrSnAlHm8DiArpP5Z25ZgyAIe78bBy69Ifb91yo5zef6zeejxeTKCwfq7hnAJWw2jtBi-HjJoJcm6VYrJ0Qh7N7ytzMWwOEzspw2r4",
+                    "width": 4160
+                }
+            ],
+            "place_id": "ChIJsd5UT-aifDURAgKqJ6Jr6H0",
+            "plus_code": {
+                "compound_code": "HX9Q+M5 서울특별시",
+                "global_code": "8Q98HX9Q+M5"
+            },
+            "price_level": 2,
+            "rating": 4.2,
+            "reference": "ChIJsd5UT-aifDURAgKqJ6Jr6H0",
+            "types": [
+                "cafe",
+                "bakery",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 786
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 종로3길 17",
+            "geometry": {
+                "location": {
+                    "lat": 37.57069,
+                    "lng": 126.9786764
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57203982989272,
+                        "lng": 126.9800262298927
+                    },
+                    "southwest": {
+                        "lat": 37.56934017010727,
+                        "lng": 126.9773265701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "포비 광화문점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109848434116122431328\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEAlpRayWGoo9fbD9atlMoztIZLr0io2N0dKDxpnRlyRmDWrcQwAUyDQWmvcLEfS3vOi0qviQ3ctFNY7x9amUvNbua9Z8rXt8ih_3XugSu-GE_mUNSEX3AbNUBiYyAKA9-QTlyyhT8AEbPgJHqJUh1wcU-0hWT4J3J56ZMMRJjOXKb6Q",
+                    "width": 2880
+                }
+            ],
+            "place_id": "ChIJZx-fiOuifDUR2HJZfG7dRJQ",
+            "plus_code": {
+                "compound_code": "HXCH+7F 서울특별시",
+                "global_code": "8Q98HXCH+7F"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJZx-fiOuifDUR2HJZfG7dRJQ",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 703
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 공평동 우정국로 26",
+            "geometry": {
+                "location": {
+                    "lat": 37.571757,
+                    "lng": 126.9832192
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57310682989272,
+                        "lng": 126.9845690298927
+                    },
+                    "southwest": {
+                        "lat": 37.57040717010727,
+                        "lng": 126.9818693701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "포제 종로센트로폴리스점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2184,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115991809052892246546\">민세빈</a>"
+                    ],
+                    "photo_reference": "Aap_uEBLSq-vohA3UgdClNLSa_ceHCn_BCgkofZIGwT3MqIOtv-EpHczSSbQz6BtKh_w8RdHWDgSuEgxklV1zLPSZR4lZOHc7sYXgmJyNVxdrGeB-P1DJgR3KGiuD91CSQBRR0GTfgdSI9p03blxmEAkR1J0IlEEmLrhnU4BRBcisA6Gd0_S",
+                    "width": 4608
+                }
+            ],
+            "place_id": "ChIJY0q6SQ6jfDURNWdvuJcDDV8",
+            "plus_code": {
+                "compound_code": "HXCM+P7 서울특별시",
+                "global_code": "8Q98HXCM+P7"
+            },
+            "rating": 4.6,
+            "reference": "ChIJY0q6SQ6jfDURNWdvuJcDDV8",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 48
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 중학동 종로1길 50",
+            "geometry": {
+                "location": {
+                    "lat": 37.5747702,
+                    "lng": 126.9796455
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57612002989272,
+                        "lng": 126.9809953298927
+                    },
+                    "southwest": {
+                        "lat": 37.57342037010728,
+                        "lng": 126.9782956701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "테라로사 광화문점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3352,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109390859310699848382\">woo H</a>"
+                    ],
+                    "photo_reference": "Aap_uEBDpw81KbD_09bNg9w17B0gddZVGXZ0pSiaLC18rPRdyRhnf3ESQn7HDrTgf4qbz4tOzjNW-6VdVMInGEHboNxcqOSIj29IuqAJFOJMWeviNGD1oklo00myTog9dj-yB5ApdhTizuimbiCfsirPqVBOBt1y0g3Z8snsgSxxS7V7S6EV",
+                    "width": 4436
+                }
+            ],
+            "place_id": "ChIJK9CrDOqifDURzfl9-6_pfUo",
+            "plus_code": {
+                "compound_code": "HXFH+WV 서울특별시",
+                "global_code": "8Q98HXFH+WV"
+            },
+            "price_level": 2,
+            "rating": 4.3,
+            "reference": "ChIJK9CrDOqifDURzfl9-6_pfUo",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1363
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 수송동 율곡로4길 51",
+            "geometry": {
+                "location": {
+                    "lat": 37.5733103,
+                    "lng": 126.9813103
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57466012989271,
+                        "lng": 126.9826601298927
+                    },
+                    "southwest": {
+                        "lat": 37.57196047010727,
+                        "lng": 126.9799604701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "로코랩",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2448,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100862102861097769678\">김신애</a>"
+                    ],
+                    "photo_reference": "Aap_uEBki0QUnGqknH7J0KcsG5AaryiU9Kem2LFDBvtMdxx3IEWh9MrHBW8BIFxrm2iwoOwGpjzHvwrZhEp-teNSViWNooWzP_AG7xuu4kgEj92aKodbgm-c1wn6soTC5cyohjKadxaDSQTkYE-cs25ttH3q7xdENqr9apvD5C8RmVvRWzZW",
+                    "width": 3264
+                }
+            ],
+            "place_id": "ChIJCcdUi-mifDURmPLG7pDle24",
+            "plus_code": {
+                "compound_code": "HXFJ+8G 서울특별시",
+                "global_code": "8Q98HXFJ+8G"
+            },
+            "price_level": 2,
+            "rating": 4.4,
+            "reference": "ChIJCcdUi-mifDURmPLG7pDle24",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 235
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 삼봉로 81",
+            "geometry": {
+                "location": {
+                    "lat": 37.572368,
+                    "lng": 126.981608
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57371782989271,
+                        "lng": 126.9829578298927
+                    },
+                    "southwest": {
+                        "lat": 37.57101817010727,
+                        "lng": 126.9802581701072
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "커피친구",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2961,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103111493375668886750\">고석태</a>"
+                    ],
+                    "photo_reference": "Aap_uEDwYrvvEGqaK0boHBbTDsh1969vGMcfvYF1FDdcdBP_xoJO2ktfSGBIS_gug19Td2TUgBgd0BoF-d-hcWqG0vruzbx_9cuOXbJZKl0zfPpr2fmCQZTA76DApA3j_AgtcJPcLA-qxEHrXJ6q63_AanaZ0s78k8e24S1jgTb60Z7r7DIw",
+                    "width": 2221
+                }
+            ],
+            "place_id": "ChIJsbevhOmifDURHdAQsf3-O2Y",
+            "plus_code": {
+                "compound_code": "HXCJ+WJ 서울특별시",
+                "global_code": "8Q98HXCJ+WJ"
+            },
+            "rating": 4.4,
+            "reference": "ChIJsbevhOmifDURHdAQsf3-O2Y",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 90
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 청진동 216-1",
+            "geometry": {
+                "location": {
+                    "lat": 37.5723555,
+                    "lng": 126.9795315
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57370532989272,
+                        "lng": 126.9808813298927
+                    },
+                    "southwest": {
+                        "lat": 37.57100567010728,
+                        "lng": 126.9781816701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "지음",
+            "photos": [
+                {
+                    "height": 2184,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102284983898167132621\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uEDXLOTeS2mdT4VlIjSewVaZvCjudmQGaEMurUSmwsGzx2gNSd07nIV29kr8Uv1ZNL1dYhTlooXXdenKVsy2T2adtpU7OqaZdMGzzZD6uK4LEPUtd8jW8ppCiGd64E_1pbP410jHKy6MUZH1Z7gVuM3XEvV6JN5YdQZKYnqj7kV6xyfF",
+                    "width": 3434
+                }
+            ],
+            "place_id": "ChIJvU4OS-ujfDURfOpZB9j3pIo",
+            "plus_code": {
+                "compound_code": "HXCH+WR 서울특별시",
+                "global_code": "8Q98HXCH+WR"
+            },
+            "rating": 4.6,
+            "reference": "ChIJvU4OS-ujfDURfOpZB9j3pIo",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 13
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 수송동 삼봉로 71",
+            "geometry": {
+                "location": {
+                    "lat": 37.5725646,
+                    "lng": 126.9810004
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57391442989272,
+                        "lng": 126.9823502298927
+                    },
+                    "southwest": {
+                        "lat": 37.57121477010728,
+                        "lng": 126.9796505701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "커피기업 광화문점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117359155705141625753\">A Google User</a>"
+                    ],
+                    "photo_reference": "Aap_uECb-VjbH1NClU2X16qsYiTTAvOB8Y5DK0dqeF1WRStU5eTFQKepcsnPqs_SkXow_aUVmFzT-LVLiRJt3fT82kjDzqmCbn07751vvFazgT9kIAD9DW3kbbrCzyF33Uxr7fStx7YRu17ST4U4k5xPH2LRO_c_VuRrDEVntG-NX4EeKvHh",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJtbLIqbyjfDUR8UlMo8jrct8",
+            "plus_code": {
+                "compound_code": "HXFJ+2C 서울특별시",
+                "global_code": "8Q98HXFJ+2C"
+            },
+            "rating": 4.5,
+            "reference": "ChIJtbLIqbyjfDUR8UlMo8jrct8",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 48
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 청진동 종로3길 38",
+            "geometry": {
+                "location": {
+                    "lat": 37.5721086,
+                    "lng": 126.979435
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57345842989272,
+                        "lng": 126.9807848298927
+                    },
+                    "southwest": {
+                        "lat": 37.57075877010728,
+                        "lng": 126.9780851701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "바나프레소 종로구청점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104101775534296068772\">rch4ing</a>"
+                    ],
+                    "photo_reference": "Aap_uECqX0pv-wPBgcfU69xSRGgBijoyPQI3oJRsnYbyP8s6U8VHGPsx92r8wAdqP4tR1CG-Z1qRxIFsznaZqZG2Vbh2EMC4gaPR84kZR8do-29a3CGfJ80eLJJ_BVgrBqvVPzJn_MJody0qe04O6dqptE8wP-RhD9HYMsK4gXqQIihqc2GH",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJUdAKDUqjfDURnIFmQ6Nro9Y",
+            "plus_code": {
+                "compound_code": "HXCH+RQ 서울특별시",
+                "global_code": "8Q98HXCH+RQ"
+            },
+            "rating": 4.3,
+            "reference": "ChIJUdAKDUqjfDURnIFmQ6Nro9Y",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 26
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 수송동 146-1",
+            "geometry": {
+                "location": {
+                    "lat": 37.5738637,
+                    "lng": 126.9789715
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57521352989272,
+                        "lng": 126.9803213298927
+                    },
+                    "southwest": {
+                        "lat": 37.57251387010727,
+                        "lng": 126.9776216701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "커피앳웍스 이마빌딩광화문점",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101987597296625625307\">조현제</a>"
+                    ],
+                    "photo_reference": "Aap_uECF1kcgK-sKO4vXCpe_V8MRrZPLfiwqZMR28l7D5iODoTpxeOfk3DVTgDX3wIXQW70gze578X_JxStGitE0onpz_pZ8r5QG-Ky_b2CyOJRCmVClNZVO5nIkq2D9JTd4UptDtJRML1YpjTWjo2u_sd25HCa0GgATY3ghl4RAWCqK_7w",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJUTWqROqifDURlwx8h1kZNik",
+            "plus_code": {
+                "compound_code": "HXFH+GH 서울특별시",
+                "global_code": "8Q98HXFH+GH"
+            },
+            "rating": 4.4,
+            "reference": "ChIJUTWqROqifDURlwx8h1kZNik",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "store",
+                "establishment"
+            ],
+            "user_ratings_total": 22
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "서울특별시 종로구 율곡로 102",
+            "geometry": {
+                "location": {
+                    "lat": 37.57727089999999,
+                    "lng": 126.9906573
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 37.57862072989272,
+                        "lng": 126.9920071298927
+                    },
+                    "southwest": {
+                        "lat": 37.57592107010728,
+                        "lng": 126.9893074701072
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png",
+            "icon_background_color": "#FF9E67",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/cafe_pinlet",
+            "name": "카페기억",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117181108731633367559\">hyeryoung won</a>"
+                    ],
+                    "photo_reference": "Aap_uEAJ7-sLoWoifnsEYg_BwdX9Z4mN4XUQxw1j5B_G9B_tpDjtJjSB6HnfaqtV99PzGe7LKwrkOz_h5L1jSP5Lgh1NdK-E5MWPssHYUSM_NVTS-WcOddWZRBDiT9o7n48bdt9sTYVBYrNfMGKnFuUP3Sg7pAkZD3U1n99zviv_WvQ8rfw-",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJR2TsdpWjfDURexIHgTpO-zg",
+            "plus_code": {
+                "compound_code": "HXGR+W7 서울특별시",
+                "global_code": "8Q98HXGR+W7"
+            },
+            "rating": 4.5,
+            "reference": "ChIJR2TsdpWjfDURexIHgTpO-zg",
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 46
+        }
+    ]

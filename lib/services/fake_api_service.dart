@@ -8,6 +8,7 @@ import 'package:bobjari_proj/models/user_model.dart';
 import 'package:bobjari_proj/models/signup_model.dart';
 import 'package:bobjari_proj/models/mentor/mentor.dart';
 import 'package:bobjari_proj/models/chat_model.dart';
+import 'package:bobjari_proj/models/like_model.dart';
 
 class FakeApiService implements Api {
   static const _jsonDir = 'assets/json/';
@@ -121,5 +122,58 @@ class FakeApiService implements Api {
     return _map
         .map<ChatModel>((dynamic chat) => ChatModel.fromJson(chat))
         .toList();
+  }
+
+  @override
+  Future<List<dynamic>> getMentorDetails(
+      String menteeId, String mentorId) async {
+    final _resourcePath = _jsonDir + 'mentor_details' + _jsonExtension;
+    final _data = await rootBundle.load(_resourcePath);
+    final _map = json.decode(utf8.decode(
+        _data.buffer.asUint8List(_data.offsetInBytes, _data.lengthInBytes)));
+    List<dynamic> _ret = [];
+    _ret.add(_map[0]);
+    _ret.add(_map[1]);
+    return _ret;
+  }
+
+  @override
+  Future<String> createLike(String menteeId, String mentorId) async {
+    return 'success';
+  }
+
+  @override
+  Future<int> deleteLike(String menteeId, String mentorId) async {
+    return 1;
+  }
+
+  @override
+  Future<List<dynamic>> likeList(String menteeId) async {
+    final _resourcePath = _jsonDir + 'like_list' + _jsonExtension;
+    final _data = await rootBundle.load(_resourcePath);
+    final _map = json.decode(
+      utf8.decode(
+        _data.buffer.asUint8List(_data.offsetInBytes, _data.lengthInBytes),
+      ),
+    );
+    return _map
+        .map<LikeModel>((dynamic like) => LikeModel.fromJson(like))
+        .toList();
+  }
+
+  @override
+  Future<String> createBobjari(
+      String menteeId, String mentorId, String proposal) async {
+    return 'success';
+  }
+
+  @override
+  Future<List<String>> autocompleteJob(String keyword, String num) async {
+    return [];
+  }
+
+  @override
+  Future<List<String>> autocompleteCorp(String keyword, String num) async {
+    return [];
   }
 }

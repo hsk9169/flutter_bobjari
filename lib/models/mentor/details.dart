@@ -9,9 +9,11 @@ class MentorDetailsModel {
 
   factory MentorDetailsModel.fromJson(Map<String, dynamic> json) {
     return MentorDetailsModel(
-      mentorId: json['mentor'],
-      introduce: json['introduce'],
-      preference: PreferenceModel.fromJson(json['preference']),
+      mentorId: json['mentor'] != null ? json['mentor'] : null,
+      introduce: json['introduce'] != null ? json['introduce'] : null,
+      preference: json['preference'] != null
+          ? PreferenceModel.fromJson(json['preference'])
+          : null,
     );
   }
 

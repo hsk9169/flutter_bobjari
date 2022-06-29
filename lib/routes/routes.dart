@@ -7,4 +7,7 @@ abstract class Routes {
   static const SIGNUP_MENTOR = '/signup/mentor';
   static const SEARCH = '/service/search';
   static const CHAT_ROOM = '/service/bob/chat';
+  static const MENTOR_DETAILS = '/mentor/details';
+  static const BOB_PROPOSE_SCHEDULE = '/mentor/propose/schedule';
+  static const BOB_PROPOSE_LOCATION = '/mentor/propose/location';
 }

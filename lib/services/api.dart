@@ -20,4 +20,12 @@ abstract class Api {
       String keyword, String startIdx, String num);
   Future<List<ChatModel>> chatList(
       String bobjariId, String startIdx, String num);
+  Future<List<dynamic>> getMentorDetails(String menteeId, String mentorId);
+  Future<String> createLike(String menteeId, String mentorId);
+  Future<int> deleteLike(String menteeId, String mentorId);
+  Future<List<dynamic>> likeList(String menteeId);
+  Future<String> createBobjari(
+      String menteeId, String mentorId, String proposal);
+  Future<List<String>> autocompleteJob(String keyword, String num);
+  Future<List<String>> autocompleteCorp(String keyword, String num);
 }

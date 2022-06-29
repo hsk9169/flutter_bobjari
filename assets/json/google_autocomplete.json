@@ -1,0 +1,302 @@
+[
+        {
+            "description": "대한민국 서울특별시 종로 북촌로 카페 노티드 안국",
+            "matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 11
+                },
+                {
+                    "length": 2,
+                    "offset": 18
+                }
+            ],
+            "place_id": "ChIJyypc7NyjfDURyZtfZGdKufk",
+            "reference": "ChIJyypc7NyjfDURyZtfZGdKufk",
+            "structured_formatting": {
+                "main_text": "카페 노티드 안국",
+                "main_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 0
+                    }
+                ],
+                "secondary_text": "대한민국 서울특별시 종로 북촌로",
+                "secondary_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 11
+                    }
+                ]
+            },
+            "terms": [
+                {
+                    "offset": 18,
+                    "value": "카페 노티드 안국"
+                },
+                {
+                    "offset": 14,
+                    "value": "북촌로"
+                },
+                {
+                    "offset": 11,
+                    "value": "종로"
+                },
+                {
+                    "offset": 5,
+                    "value": "서울특별시"
+                },
+                {
+                    "offset": 0,
+                    "value": "대한민국"
+                }
+            ],
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ]
+        },
+        {
+            "description": "대한민국 서울특별시 종로 사직동 카페아르크",
+            "matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 11
+                },
+                {
+                    "length": 2,
+                    "offset": 18
+                }
+            ],
+            "place_id": "ChIJh8p3ugSjfDURhk6U9d7fj_s",
+            "reference": "ChIJh8p3ugSjfDURhk6U9d7fj_s",
+            "structured_formatting": {
+                "main_text": "카페아르크",
+                "main_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 0
+                    }
+                ],
+                "secondary_text": "대한민국 서울특별시 종로 사직동",
+                "secondary_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 11
+                    }
+                ]
+            },
+            "terms": [
+                {
+                    "offset": 18,
+                    "value": "카페아르크"
+                },
+                {
+                    "offset": 14,
+                    "value": "사직동"
+                },
+                {
+                    "offset": 11,
+                    "value": "종로"
+                },
+                {
+                    "offset": 5,
+                    "value": "서울특별시"
+                },
+                {
+                    "offset": 0,
+                    "value": "대한민국"
+                }
+            ],
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ]
+        },
+        {
+            "description": "대한민국 서울특별시 종로 권농동 서순라길 카페 사사",
+            "matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 11
+                },
+                {
+                    "length": 2,
+                    "offset": 23
+                }
+            ],
+            "place_id": "ChIJT1b5q8KjfDUR59dpq6hgUEQ",
+            "reference": "ChIJT1b5q8KjfDUR59dpq6hgUEQ",
+            "structured_formatting": {
+                "main_text": "카페 사사",
+                "main_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 0
+                    }
+                ],
+                "secondary_text": "대한민국 서울특별시 종로 권농동 서순라길",
+                "secondary_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 11
+                    }
+                ]
+            },
+            "terms": [
+                {
+                    "offset": 23,
+                    "value": "카페 사사"
+                },
+                {
+                    "offset": 18,
+                    "value": "서순라길"
+                },
+                {
+                    "offset": 14,
+                    "value": "권농동"
+                },
+                {
+                    "offset": 11,
+                    "value": "종로"
+                },
+                {
+                    "offset": 5,
+                    "value": "서울특별시"
+                },
+                {
+                    "offset": 0,
+                    "value": "대한민국"
+                }
+            ],
+            "types": [
+                "cafe",
+                "store",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ]
+        },
+        {
+            "description": "대한민국 서울특별시 종로 청운동 카페 시노라",
+            "matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 11
+                },
+                {
+                    "length": 2,
+                    "offset": 18
+                }
+            ],
+            "place_id": "ChIJgz8yLbOjfDURBYQCCbUrogQ",
+            "reference": "ChIJgz8yLbOjfDURBYQCCbUrogQ",
+            "structured_formatting": {
+                "main_text": "카페 시노라",
+                "main_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 0
+                    }
+                ],
+                "secondary_text": "대한민국 서울특별시 종로 청운동",
+                "secondary_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 11
+                    }
+                ]
+            },
+            "terms": [
+                {
+                    "offset": 18,
+                    "value": "카페 시노라"
+                },
+                {
+                    "offset": 14,
+                    "value": "청운동"
+                },
+                {
+                    "offset": 11,
+                    "value": "종로"
+                },
+                {
+                    "offset": 5,
+                    "value": "서울특별시"
+                },
+                {
+                    "offset": 0,
+                    "value": "대한민국"
+                }
+            ],
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ]
+        },
+        {
+            "description": "대한민국 서울특별시 종로 창경궁로26길 카페 키이로",
+            "matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 11
+                },
+                {
+                    "length": 2,
+                    "offset": 22
+                }
+            ],
+            "place_id": "ChIJWVYlLSqjfDUR3WbxIp8B4mM",
+            "reference": "ChIJWVYlLSqjfDUR3WbxIp8B4mM",
+            "structured_formatting": {
+                "main_text": "카페 키이로",
+                "main_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 0
+                    }
+                ],
+                "secondary_text": "대한민국 서울특별시 종로 창경궁로26길",
+                "secondary_text_matched_substrings": [
+                    {
+                        "length": 2,
+                        "offset": 11
+                    }
+                ]
+            },
+            "terms": [
+                {
+                    "offset": 22,
+                    "value": "카페 키이로"
+                },
+                {
+                    "offset": 14,
+                    "value": "창경궁로26길"
+                },
+                {
+                    "offset": 11,
+                    "value": "종로"
+                },
+                {
+                    "offset": 5,
+                    "value": "서울특별시"
+                },
+                {
+                    "offset": 0,
+                    "value": "대한민국"
+                }
+            ],
+            "types": [
+                "cafe",
+                "food",
+                "point_of_interest",
+                "establishment"
+            ]
+        }
+    ]

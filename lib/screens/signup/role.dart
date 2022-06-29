@@ -2,10 +2,8 @@ import 'package:bobjari_proj/widgets/signup_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bobjari_proj/providers/signup_provider.dart';
-import 'package:bobjari_proj/providers/session_provider.dart';
 import 'package:bobjari_proj/services/real_api_service.dart';
 import 'package:bobjari_proj/const/colors.dart';
-import 'package:bobjari_proj/models/signup_model.dart';
 import 'package:bobjari_proj/routes/routes.dart';
 
 class SignupProfileRoleView extends StatefulWidget {
@@ -18,7 +16,6 @@ class _SignupProfileRoleView extends State<SignupProfileRoleView> {
   var _role = '';
   Color _menteeColor = Colors.white;
   Color _mentorColor = Colors.white;
-  late SignupModel _reqModel;
 
   @override
   void initState() {
@@ -35,28 +32,13 @@ class _SignupProfileRoleView extends State<SignupProfileRoleView> {
   }
 
   void _pressNext() async {
-    var _jwt;
-    var _user;
-    _reqModel = SignupModel(
-      email: Provider.of<Signup>(context, listen: false).email,
-      phone: Provider.of<Signup>(context, listen: false).phone,
-      nickname: Provider.of<Signup>(context, listen: false).nickname,
-      age: Provider.of<Signup>(context, listen: false).age,
-      gender: Provider.of<Signup>(context, listen: false).gender,
-      image: Provider.of<Signup>(context, listen: false).image,
-      role: _role,
-    );
-    Provider.of<Signup>(context, listen: false).show();
-    _user = await _realApiService.signUpBob(_reqModel);
-    if (_user.profile?.nickname == _reqModel.nickname) {
-      _jwt = await _realApiService
-          .getJWT(_user.profile?.phone ?? _user.profile?.email);
-      Provider.of<Session>(context, listen: false).user = _user;
-      Provider.of<Session>(context, listen: false).token = _jwt;
-      Navigator.pushNamedAndRemoveUntil(
-          context, Routes.SERVICE, (Route<dynamic> route) => false);
+    Provider.of<Signup>(context, listen: false).role = _role;
+    if (_role == 'mentee') {
+      Navigator.pushNamed(context, Routes.SIGNUP_MENTEE);
+    } else if (_role == 'mentor') {
+      Navigator.pushNamed(context, Routes.SIGNUP_MENTOR);
     } else {
-      throw Exception('user profile not found');
+      throw Exception('role is not defined yet');
     }
   }
 
@@ -79,6 +61,7 @@ class _SignupProfileRoleView extends State<SignupProfileRoleView> {
   @override
   Widget build(BuildContext context) {
     return SignupForm(
+        isbasePadding: true,
         topTitle: const ['회원가입 완료!', '원하는 활동을 선택해주세요.'],
         child: Center(
             child: Column(children: [
@@ -103,9 +86,10 @@ class _SignupProfileRoleView extends State<SignupProfileRoleView> {
             ),
           ])
         ])),
-        btnTitle: '가입하기',
+        btn2Title: '다 음',
+        btn2Color: BobColors.mainColor,
         pressBack: _pressBack,
-        pressNext: _role == '' ? null : _pressNext);
+        pressBtn2: _role == '' ? null : () => _pressNext());
   }
 }
 

@@ -8,10 +8,10 @@ class MentorMetaModel {
 
   factory MentorMetaModel.fromJson(Map<String, dynamic> json) {
     return MentorMetaModel(
-      mentorId: json['mentorId'],
-      numNews: json['numNews'],
-      numBobjari: json['numBobjari'],
-      rate: RateModel.fromJson(json['rate']),
+      mentorId: json['mentorId'] != null ? json['mentorId'] : null,
+      numNews: json['numNews'] != null ? json['numNews'] : null,
+      numBobjari: json['numBobjari'] != null ? json['numBobjari'] : null,
+      rate: json['rate'] != null ? RateModel.fromJson(json['rate']) : null,
     );
   }
 
@@ -31,8 +31,8 @@ class RateModel {
 
   factory RateModel.fromJson(Map<String, dynamic> json) {
     return RateModel(
-      score: json['score'],
-      num: json['num'],
+      score: json['score'] != null ? json['score'] : null,
+      num: json['num'] != null ? json['num'] : null,
     );
   }
 

@@ -39,7 +39,6 @@ class _SignupProfileImageView extends State<SignupProfileImageView> {
       maxWidth: MediaQuery.of(context).size.width * 0.35,
     );
     Uint8List? _imgBytes = await _imgFile?.readAsBytes();
-    print(_imgBytes?.length);
     setState(() {
       _imageDisplay = _imgBytes == null ? null : Image.memory(_imgBytes);
       _image = _imgBytes;
@@ -83,6 +82,7 @@ class _SignupProfileImageView extends State<SignupProfileImageView> {
             );
           } else {
             return SignupForm(
+                isbasePadding: true,
                 topTitle: const ['프로필 사진을 등록해주세요.', ''],
                 child: Center(
                     child: Column(children: [
@@ -130,9 +130,10 @@ class _SignupProfileImageView extends State<SignupProfileImageView> {
                             color: Colors.white)),
                   )
                 ])),
-                btnTitle: '다 음',
+                btn2Title: '다 음',
+                btn2Color: BobColors.mainColor,
                 pressBack: _pressBack,
-                pressNext: () => _pressNext(snapshot.data));
+                pressBtn2: () => _pressNext(snapshot.data));
           }
         });
   }

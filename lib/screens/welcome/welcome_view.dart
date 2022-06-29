@@ -30,10 +30,10 @@ class _WelcomeView extends State<WelcomeView> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) => _pageSlider());
+    WidgetsBinding.instance?.addPostFrameCallback((_) => _myPageSlider());
   }
 
-  void _pageSlider() {
+  void _myPageSlider() {
     Future.delayed(const Duration(seconds: 2)).then((_) {
       if (_curPage < _pageList.length - 1) {
         _curPage++;
@@ -45,7 +45,7 @@ class _WelcomeView extends State<WelcomeView> {
           .animateToPage(_curPage,
               duration: const Duration(milliseconds: 300),
               curve: Curves.elasticOut)
-          .then((_) => _pageSlider());
+          .then((_) => _myPageSlider());
     });
   }
 

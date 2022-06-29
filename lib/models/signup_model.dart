@@ -3,6 +3,7 @@ import 'package:bobjari_proj/models/preference/location.dart';
 import 'dart:typed_data';
 
 class SignupModel {
+  String? deviceToken;
   String? email;
   String? phone;
   int age;
@@ -10,7 +11,7 @@ class SignupModel {
   String nickname;
   Uint8List image;
   String role;
-  String? interests;
+  List<String>? interests;
   String? job;
   String? company;
   int? years;
@@ -25,7 +26,8 @@ class SignupModel {
   String? fee;
 
   SignupModel(
-      {this.email,
+      {this.deviceToken,
+      this.email,
       this.phone,
       required this.age,
       required this.gender,
@@ -47,6 +49,7 @@ class SignupModel {
       this.fee});
 
   Map<String, dynamic> toJson() => {
+        'deviceToken': deviceToken,
         'email': email,
         'phone': phone,
         'nickname': nickname,
@@ -54,5 +57,6 @@ class SignupModel {
         'gender': gender,
         'image': image,
         'role': role,
+        'interests': interests,
       };
 }

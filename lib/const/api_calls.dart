@@ -28,6 +28,9 @@ class ApiCalls {
 
   static String recentReview = '/api/review/recent';
 
+  static String autocompleteJob = '/api/autocomplete/job';
+  static String autocompleteCorp = '/api/autocomplete/corp';
+
   static String getMessage = '/api/chat';
   static String newChatMessage = 'newChatMessage';
   static String socketServerUri = 'http://localhost:5000';

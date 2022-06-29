@@ -12,7 +12,7 @@ class TopBarSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+    return Row(children: [
       IconButton(
         icon: const Icon(Icons.arrow_back_ios_new_rounded),
         color: Colors.black,
@@ -22,12 +22,12 @@ class TopBarSearch extends StatelessWidget {
       ),
       Spacer(),
       Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8), color: Colors.grey[200]),
-        height: MediaQuery.of(context).size.height * 0.05,
-        width: MediaQuery.of(context).size.width * 0.8,
-        child: Center(child: search),
-      ),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8), color: Colors.grey[200]),
+          alignment: Alignment.center,
+          height: MediaQuery.of(context).size.height * 0.05,
+          width: MediaQuery.of(context).size.width * 0.8,
+          child: search),
       Spacer()
     ]);
   }

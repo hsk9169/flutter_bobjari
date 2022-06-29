@@ -9,11 +9,13 @@ class MenteeMetaModel {
 
   factory MenteeMetaModel.fromJson(Map<String, dynamic> json) {
     return MenteeMetaModel(
-      menteeId: json['mentee'],
-      numNews: json['numNews'],
-      searchKeyword: json['searchKeyword']
-          ?.map<String>((keyword) => keyword as String)
-          .toList(),
+      menteeId: json['mentee'] != null ? json['mentee'] : null,
+      numNews: json['numNews'] != null ? json['numNews'] : null,
+      searchKeyword: json['searchKeyword'] != null
+          ? json['searchKeyword']
+              ?.map<String>((keyword) => keyword as String)
+              .toList()
+          : null,
     );
   }
 

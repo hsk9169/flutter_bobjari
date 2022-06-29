@@ -1,6 +1,7 @@
 import './details.dart';
 import './metadata.dart';
 import '../user_model.dart';
+import '../review_model.dart';
 
 class MentorModel {
   String? id;
@@ -11,6 +12,7 @@ class MentorModel {
   MentorDetailsModel? details;
   MentorMetaModel? metadata;
   UserModel? userDetail;
+  List<ReviewModel>? review;
 
 // user
 
@@ -22,34 +24,48 @@ class MentorModel {
       this.searchAllow,
       this.details,
       this.metadata,
-      this.userDetail});
+      this.userDetail,
+      this.review});
 
-  factory MentorModel.fromJsonBobjari(Map<String, dynamic> json) {
+  MentorModel.fromJsonBobjari(Map<String, dynamic> json) {
+    id = json['_id'] != null ? json['_id'] : null;
+    career =
+        json['career'] != null ? CareerModel.fromJson(json['career']) : null;
+    title = json['title'] != null ? json['title'] : null;
+    hashtags = json['hashtags'] != null
+        ? json['hashtags']?.map<String>((tag) => tag as String).toList()
+        : null;
+    searchAllow = json['searchAllow'] != null ? json['searchAllow'] : null;
+    userDetail = json['userDetail'] != null
+        ? UserModel.fromJsonBobjari(json['userDetail'])
+        : null;
+    details = json['details'] != null
+        ? MentorDetailsModel.fromJson(json['details'])
+        : null;
+    metadata = json['metadata'] != null
+        ? MentorMetaModel.fromJson(json['metadata'])
+        : null;
+    review = json['review']
+        ?.map<ReviewModel>((dynamic el) => ReviewModel.fromJson(el))
+        .toList();
+  }
+
+  factory MentorModel.fromJsonUser(Map<String, dynamic> json) {
     return MentorModel(
-      id: json['_id'],
-      career: CareerModel.fromJson(json['career']),
-      title: json['title'],
-      hashtags: json['hashtags']?.map<String>((tag) => tag as String).toList(),
-      searchAllow: json['searchAllow'],
-      userDetail: UserModel.fromJsonBobjari(json['userDetail']),
+      id: json['_id'] != null ? json['_id'] : null,
+      career:
+          json['career'] != null ? CareerModel.fromJson(json['career']) : null,
+      title: json['title'] != null ? json['title'] : null,
+      hashtags: json['hashtags'] != null
+          ? json['hashtags']?.map<String>((tag) => tag as String).toList()
+          : null,
+      searchAllow: json['searchAllow'] != null ? json['searchAllow'] : null,
       details: json['details'] != null
           ? MentorDetailsModel.fromJson(json['details'])
           : null,
       metadata: json['metadata'] != null
           ? MentorMetaModel.fromJson(json['metadata'])
           : null,
-    );
-  }
-
-  factory MentorModel.fromJsonUser(Map<String, dynamic> json) {
-    return MentorModel(
-      id: json['_id'],
-      career: CareerModel.fromJson(json['career']),
-      title: json['title'],
-      hashtags: json['hashtags']?.map<String>((tag) => tag as String).toList(),
-      searchAllow: json['searchAllow'],
-      details: MentorDetailsModel.fromJson(json['details']),
-      metadata: MentorMetaModel.fromJson(json['metadata']),
     );
   }
 
@@ -62,6 +78,7 @@ class MentorModel {
         'details': details?.toJson(),
         'metadata': metadata?.toJson(),
         'userDetail': userDetail?.toJson(),
+        'review': review?.map((el) => el.toJson()).toList(),
       };
 }
 
@@ -77,11 +94,13 @@ class CareerModel {
 
   factory CareerModel.fromJson(Map<String, dynamic> json) {
     return CareerModel(
-      job: json['job'],
-      company: json['company'],
-      years: json['years'],
-      topics: json['topics']?.map<int>((topic) => topic as int).toList(),
-      authModel: AuthModel.fromJson(json['auth']),
+      job: json['job'] != null ? json['job'] : null,
+      company: json['company'] != null ? json['company'] : null,
+      years: json['years'] != null ? json['years'] : null,
+      topics: json['topics'] != null
+          ? json['topics']?.map<int>((topic) => topic as int).toList()
+          : null,
+      authModel: json['auth'] != null ? AuthModel.fromJson(json['auth']) : null,
     );
   }
 

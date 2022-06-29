@@ -9,8 +9,8 @@ class LocationModel {
       required this.geolocation});
 
   LocationModel.fromJson(Map<String, dynamic> json) {
-    placeName = json['place_name'];
-    addressName = json['address_name'];
+    placeName = json['place_name'] != null ? json['place_name'] : null;
+    addressName = json['address_name'] != null ? json['address_name'] : null;
     geolocation = GeoModel.fromJson(json['geolocation']);
   }
 

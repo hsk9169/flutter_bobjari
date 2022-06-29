@@ -1,15 +1,12 @@
 import 'package:bobjari_proj/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:bobjari_proj/const/spaces.dart';
-import 'package:bobjari_proj/widgets/base_scroller_with_back.dart';
 import 'package:bobjari_proj/widgets/topbar_search.dart';
 import 'package:bobjari_proj/services/real_api_service.dart';
 import 'package:bobjari_proj/services/fake_api_service.dart';
 import 'package:bobjari_proj/models/mentor/mentor.dart';
 import 'package:bobjari_proj/widgets/card/mentor_search.dart';
 import 'package:bobjari_proj/screens/search/filter_menu.dart';
-import 'package:bobjari_proj/const/spaces.dart';
-import 'package:bobjari_proj/widgets/base_padding.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({Key? key}) : super(key: key);
@@ -84,11 +81,11 @@ class _SearchView extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-            decoration: const BoxDecoration(color: Colors.white),
-            child: SafeArea(
-                top: true,
-                bottom: false,
+        body: SafeArea(
+            top: true,
+            bottom: false,
+            child: Container(
+                color: Colors.grey[200],
                 child:
                     CustomScrollView(controller: _scrollController, slivers: [
                   SliverAppBar(
@@ -97,65 +94,56 @@ class _SearchView extends State<SearchView> {
                       snap: false,
                       floating: true,
                       backgroundColor: Colors.white,
-                      flexibleSpace: Container(
-                        decoration: const BoxDecoration(color: Colors.white),
-                        child: TopBarSearch(
-                          press: _goBack,
-                          search: TextField(
-                              onSubmitted: (_value) {
-                                _onSearch(_value);
-                              },
-                              textAlignVertical: TextAlignVertical.center,
-                              autofocus: true,
-                              focusNode: _textFocusNode,
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  prefixIcon: const Icon(Icons.search),
-                                  suffixIcon: IconButton(
-                                      padding: EdgeInsets.zero,
-                                      constraints: const BoxConstraints(),
-                                      icon: const Icon(Icons.cancel),
-                                      color: Colors.grey,
-                                      onPressed: _removeSearchInput),
-                                  hintText: '직업명, 직군, 회사 등'),
-                              controller: _textController,
-                              keyboardType: TextInputType.text),
-                        ),
+                      flexibleSpace: TopBarSearch(
+                        press: _goBack,
+                        search: TextField(
+                            onSubmitted: (_value) {
+                              _onSearch(_value);
+                            },
+                            textAlignVertical: TextAlignVertical.center,
+                            autofocus: true,
+                            focusNode: _textFocusNode,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                prefixIcon: const Icon(Icons.search),
+                                suffixIcon: IconButton(
+                                    padding: EdgeInsets.zero,
+                                    constraints: const BoxConstraints(),
+                                    icon: const Icon(Icons.cancel),
+                                    color: Colors.grey,
+                                    onPressed: _removeSearchInput),
+                                hintText: '직업명, 직군, 회사 등'),
+                            controller: _textController,
+                            keyboardType: TextInputType.text),
                       ),
                       bottom: PreferredSize(
-                        child: Padding(
+                        child: Container(
                             padding: EdgeInsets.only(
                                 left: BobSpaces.firstEgg,
                                 right: BobSpaces.firstEgg),
-                            child: FilterMenu()),
+                            child: FilterMenu(),
+                            decoration:
+                                BoxDecoration(color: Colors.white, boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.1),
+                                spreadRadius: 2,
+                                blurRadius: 8,
+                                offset: Offset(
+                                    0,
+                                    MediaQuery.of(context).size.height *
+                                        0.015), // changes position of shadow
+                              ),
+                            ])),
                         preferredSize: Size.fromHeight(
                             MediaQuery.of(context).size.height * 0.12),
                       )),
-                  /*
-                  SliverToBoxAdapter(
-                      child: Padding(
-                    padding: EdgeInsets.only(
-                        left: BobSpaces.firstEgg, right: BobSpaces.firstEgg),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: _renderKeywordHistory()),
-                  )
-                      //])
-                      ),
-                      */
                   SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
-                    return Stack(children: [
-                      Container(
-                          padding: _searchResult.isNotEmpty
-                              ? EdgeInsets.all(
-                                  MediaQuery.of(context).size.height * 0.03)
-                              : null,
-                          decoration: BoxDecoration(color: Colors.grey[200]),
-                          child: Column(children: _renderSearchResult()))
-                    ]);
+                    return Padding(
+                        padding: EdgeInsets.all(
+                            MediaQuery.of(context).size.width * 0.05),
+                        child: Column(children: _renderSearchResult()));
                   }, childCount: 1))
                 ]))));
   }
@@ -198,7 +186,6 @@ class _SearchView extends State<SearchView> {
                           onPressed: () {
                             setState(() {
                               _searchHistory.removeAt(idx);
-                              print(_searchHistory);
                             });
                           },
                           color: Colors.grey,

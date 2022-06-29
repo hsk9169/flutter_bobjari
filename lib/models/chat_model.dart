@@ -6,14 +6,14 @@ class ChatModel {
   ChatModel({this.message, this.date, this.authorId});
 
   ChatModel.fromJson(Map<String, dynamic> json) {
-    message = json['message'];
-    date = json['createdAt'];
-    authorId = json['authorId'];
+    message = json['message'] ?? '';
+    date = json['createdAt'] ?? '';
+    authorId = json['author'] ?? '';
   }
 
   Map<String, dynamic> toJson() => {
         'message': message,
         'date': date,
-        'authorId': authorId,
+        'author': authorId,
       };
 }

@@ -22,6 +22,9 @@ class ChatComponentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String _mentorInfo = nickname ?? '';
+    _mentorInfo +=
+        job != null ? ' ' + String.fromCharCode(0x00B7) + ' ' + job! : '';
     return SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.1,
@@ -34,13 +37,15 @@ class ChatComponentCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          image: Image.memory(
-                                  Uri.parse(profileImage!)
-                                      .data!
-                                      .contentAsBytes(),
-                                  gaplessPlayback: true)
-                              .image,
-                          fit: BoxFit.cover,
+                          image: Uri.parse(profileImage!).data != null
+                              ? Image.memory(
+                                      Uri.parse(profileImage!)
+                                          .data!
+                                          .contentAsBytes(),
+                                      gaplessPlayback: true)
+                                  .image
+                              : const AssetImage('assets/images/dog.png'),
+                          fit: BoxFit.contain,
                         ),
                       )))),
           Expanded(
@@ -54,19 +59,15 @@ class ChatComponentCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                      Row(children: [
-                        Text(nickname!,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.037,
-                                fontWeight: FontWeight.bold)),
-                        Text(' ' + String.fromCharCode(0x00B7) + ' '),
-                        Text(job!,
-                            overflow: TextOverflow.fade,
-                            maxLines: 1,
-                            softWrap: false)
-                      ]),
+                      Text(_mentorInfo,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.040,
+                              fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.fade,
+                          maxLines: 1,
+                          softWrap: false),
                       Padding(
                           padding: EdgeInsets.all(
                               MediaQuery.of(context).size.width * 0.003)),
@@ -74,31 +75,19 @@ class ChatComponentCard extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black,
                               fontSize:
-                                  MediaQuery.of(context).size.width * 0.034,
+                                  MediaQuery.of(context).size.width * 0.037,
                               fontWeight: FontWeight.normal),
                           overflow: TextOverflow.fade,
                           maxLines: 1,
                           softWrap: false),
                       Padding(
                           padding: EdgeInsets.all(
-                              MediaQuery.of(context).size.width * 0.003)),
+                              MediaQuery.of(context).size.width * 0.006)),
                       Text(_statusString(status!),
                           style: TextStyle(
                               color: Colors.black54,
                               fontSize:
-                                  MediaQuery.of(context).size.width * 0.031,
-                              fontWeight: FontWeight.normal),
-                          overflow: TextOverflow.fade,
-                          maxLines: 1,
-                          softWrap: false),
-                      Padding(
-                          padding: EdgeInsets.all(
-                              MediaQuery.of(context).size.width * 0.003)),
-                      Text('socket_token: ' + bobjariId!,
-                          style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.028,
+                                  MediaQuery.of(context).size.width * 0.034,
                               fontWeight: FontWeight.normal),
                           overflow: TextOverflow.fade,
                           maxLines: 1,
@@ -114,7 +103,7 @@ class ChatComponentCard extends StatelessWidget {
                   Text(_dateTimeString(updatedAt!),
                       style: TextStyle(
                         color: Colors.black45,
-                        fontSize: MediaQuery.of(context).size.width * 0.028,
+                        fontSize: MediaQuery.of(context).size.width * 0.031,
                       ))
                 ]),
           )
@@ -155,6 +144,8 @@ class ChatComponentCard extends StatelessWidget {
             _last.minute < 10 ? '0${_last.minute}' : _last.minute.toString();
       } else if (_now.day - _last.day == 1) {
         _ret = '어제';
+      } else {
+        _ret = _last.month.toString() + '월 ' + _last.day.toString() + '일';
       }
     } else if (_now.year == _last.year &&
         _now.month - _last.month == 1 &&

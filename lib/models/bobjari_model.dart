@@ -1,13 +1,13 @@
 import 'package:bobjari_proj/models/user_model.dart';
 import 'package:bobjari_proj/models/mentor/mentor.dart';
 import 'package:bobjari_proj/models/mentee/mentee.dart';
-import 'package:bobjari_proj/models/preference/preference.dart';
+import 'package:bobjari_proj/models/proposal_model.dart';
 import 'package:bobjari_proj/models/appointment_model.dart';
 import 'package:bobjari_proj/models/chat_model.dart';
 
 class BobjariModel {
   late String? bobjariId;
-  late PreferenceModel? proposal;
+  late ProposalModel? proposal;
   late AppointmentModel? appointment;
   late int? status;
   late int? numNews;
@@ -30,7 +30,7 @@ class BobjariModel {
 
   BobjariModel.fromJsonMentee(Map<String, dynamic> json) {
     bobjariId = json['id'];
-    proposal = PreferenceModel.fromJson(json['proposal']);
+    proposal = ProposalModel.fromJson(json['proposal']);
     appointment = AppointmentModel.fromJson(json['appointment']);
     status = json['status'];
     numNews = json['numNews'];
@@ -42,12 +42,12 @@ class BobjariModel {
 
   BobjariModel.fromJsonMentor(Map<String, dynamic> json) {
     bobjariId = json['id'];
-    proposal = PreferenceModel.fromJson(json['proposal']);
+    proposal = ProposalModel.fromJson(json['proposal']);
     appointment = AppointmentModel.fromJson(json['appointment']);
     status = json['status'];
     numNews = json['numNews'];
     updatedAt = json['updatedAt'];
-    chat = ChatModel.fromJson(json['chat']);
+    chat = json['chat'] != null ? ChatModel.fromJson(json['chat']) : null;
     mentee = MenteeModel.fromJsonBobjari(json['mentee']);
     mentor = null;
   }

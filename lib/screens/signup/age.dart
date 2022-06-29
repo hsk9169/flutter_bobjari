@@ -1,3 +1,4 @@
+import 'package:bobjari_proj/const/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -46,6 +47,7 @@ class _SignupProfileAgeView extends State<SignupProfileAgeView> {
   @override
   Widget build(BuildContext context) {
     return SignupForm(
+        isbasePadding: true,
         topTitle: const ['태어난 연도를 선택해주세요.', ''],
         child: ConstrainedBox(
             constraints: const BoxConstraints(maxHeight: 300),
@@ -57,9 +59,10 @@ class _SignupProfileAgeView extends State<SignupProfileAgeView> {
               useMagnifier: true,
               magnification: 1.5,
             )),
-        btnTitle: '다 음',
+        btn2Title: '다 음',
+        btn2Color: BobColors.mainColor,
         pressBack: _pressBack,
-        pressNext: _pressNext);
+        pressBtn2: _pressNext);
   }
 }
 

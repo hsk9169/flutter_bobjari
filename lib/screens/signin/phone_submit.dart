@@ -1,15 +1,11 @@
-//import 'package:bobjari_proj/models/sms_auth_model.dart';
-//import 'package:bobjari_proj/services/real_api_service.dart';
 import 'package:bobjari_proj/services/fake_api_service.dart';
 import 'package:flutter/material.dart';
-//import 'package:provider/provider.dart';
-//import 'package:image_picker/image_picker.dart';
 import 'package:bobjari_proj/widgets/big_button.dart';
 import 'package:bobjari_proj/widgets/base_padding.dart';
 import 'package:bobjari_proj/widgets/topbar_back.dart';
 import 'package:bobjari_proj/widgets/top_title.dart';
 import 'package:bobjari_proj/screens/screens.dart';
-import 'package:bobjari_proj/widgets/base_scroller_with_back.dart';
+import 'package:bobjari_proj/widgets/signup_form.dart';
 
 class PhoneSubmitView extends StatefulWidget {
   const PhoneSubmitView({Key? key}) : super(key: key);
@@ -22,7 +18,11 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
   //final RealApiService _apiService = RealApiService();
   final FakeApiService _apiService = FakeApiService();
   final TextEditingController _textController =
-      TextEditingController(text: '01045619502');
+      // mentee
+      //  TextEditingController(text: '01045619502');
+      // mentor
+      //TextEditingController(text: '01096658506');
+      TextEditingController(text: '00000000000');
   bool _validate = false;
   String _phone = '';
 
@@ -76,33 +76,36 @@ class _PhoneSubmitView extends State<PhoneSubmitView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseScrollerWithBack(
-        appBar: TopBarBack(press: _goBack),
+    return SignupForm(
+        isbasePadding: false,
+        topTitle: const ['등록된 전화번호로', '인증번호를 요청해주세요.'],
+        pressBack: _goBack,
         child: Column(children: [
           BasePadding(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const TopTitle(titleText: ['등록된 전화번호로', '인증번호를 요청해주세요.']),
                 TextField(
-                  decoration: const InputDecoration(hintText: '전화번호를 입력해주세요.'),
+                  decoration: InputDecoration(
+                      hintText: '전화번호를 입력해주세요.',
+                      suffixIcon: IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                          icon: const Icon(Icons.cancel),
+                          color: Colors.grey,
+                          onPressed: () => setState(() {
+                                _textController.text = '';
+                              }))),
                   controller: _textController,
                   keyboardType: TextInputType.phone,
+                  autofocus: true,
                 ),
               ],
             ),
           )
         ]),
-        bottomSheet: BasePadding(
-            child: Padding(
-                padding: const EdgeInsets.only(bottom: 30),
-                child: SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: BigButton(
-                        btnColor: Colors.black,
-                        title: '인증번호 요청',
-                        txtColor: Colors.white,
-                        press: _validate ? _submitPhone : null)))));
+        btn1Title: '인증번호 요청',
+        btn1Color: Colors.black,
+        pressBtn1: _validate ? _submitPhone : null);
   }
 }

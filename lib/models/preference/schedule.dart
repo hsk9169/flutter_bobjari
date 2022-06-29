@@ -1,16 +1,12 @@
 class ScheduleAppointmentModel {
-  late int day;
-  late int dateDay;
-  late TimeModel time;
-  late int month;
-  late int year;
+  late int? day;
+  late int? dateDay;
+  late TimeModel? time;
+  late int? month;
+  late int? year;
 
   ScheduleAppointmentModel(
-      {required this.day,
-      required this.dateDay,
-      required this.time,
-      required this.month,
-      required this.year});
+      {this.day, this.dateDay, this.time, this.month, this.year});
 
   ScheduleAppointmentModel.fromJson(Map<String, dynamic> json) {
     day = json['day'];
@@ -23,38 +19,36 @@ class ScheduleAppointmentModel {
   Map<String, dynamic> toJson() => {
         'day': day,
         'dateDay': dateDay,
-        'time': time.toJson(),
+        'time': time?.toJson(),
         'month': month,
         'year': year,
       };
 }
 
 class ScheduleProposalModel {
-  late List<int> day;
-  late List<int> dateDay;
-  late List<TimeModel> time;
-  late int month;
-  late int year;
+  late List<int>? day;
+  late List<int>? dateDay;
+  late List<TimeModel>? time;
+  late int? month;
+  late int? year;
 
   ScheduleProposalModel(
-      {required this.day,
-      required this.dateDay,
-      required this.time,
-      required this.month,
-      required this.year});
+      {this.day, this.dateDay, this.time, this.month, this.year});
 
   ScheduleProposalModel.fromJson(Map<String, dynamic> json) {
-    day = json['day']?.map<int>((el) => el as String).toList();
-    dateDay = json['dateDay']?.map<int>((el) => el as String).toList();
-    time = json['time']?.map<TimeModel>((el) => el as TimeModel).toList();
+    day = json['day'].map<int>((dynamic el) => el as int).toList();
+    dateDay = json['dateDay'].map<int>((dynamic el) => el as int).toList();
+    time = json['time']
+        .map<TimeModel>((dynamic el) => TimeModel.fromJson(el))
+        .toList();
     month = json['month'];
     year = json['year'];
   }
 
   Map<String, dynamic> toJson() => {
-        'day': day,
-        'dateDay': dateDay,
-        'time': time,
+        'day': day ?? [],
+        'dateDay': dateDay ?? [],
+        'time': time?.map((dynamic el) => el.toJson()).toList(),
         'month': month,
         'year': year,
       };
@@ -88,8 +82,8 @@ class TimeModel {
   TimeModel({required this.startTime, required this.endTime});
 
   TimeModel.fromJson(Map<String, dynamic> json) {
-    startTime = json['startTime'];
-    endTime = json['endTime'];
+    startTime = json['startTime'] as String;
+    endTime = json['endTime'] as String;
   }
 
   Map<String, dynamic> toJson() => {

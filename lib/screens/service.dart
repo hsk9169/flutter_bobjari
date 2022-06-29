@@ -6,19 +6,28 @@ import 'package:bobjari_proj/screens/screens.dart';
 import 'package:bobjari_proj/routes/routes.dart';
 
 class ServiceView extends StatefulWidget {
+  final int selected;
+  final int? subSelected;
+  const ServiceView({Key? key, required this.selected, this.subSelected});
   @override
   State<StatefulWidget> createState() => _ServiceView();
 }
 
 class _ServiceView extends State<ServiceView> {
-  int _selected = 0;
+  late int _selected;
+
+  @override
+  void initState() {
+    _selected = widget.selected;
+    super.initState();
+  }
 
   Widget? _bodyWidget(int _index, dynamic _session) {
     switch (_index) {
       case 0:
         return MainView(session: _session);
       case 1:
-        return BobView(session: _session);
+        return BobView(session: _session, tabNum: widget.subSelected ?? 0);
       case 2:
         return MypageView(session: _session);
       default:
@@ -29,7 +38,11 @@ class _ServiceView extends State<ServiceView> {
   void _onItemTapped(int sel) {
     if (sel > 0 &&
         Provider.of<Session>(context, listen: false).user.userId == null) {
-      Navigator.pushNamed(context, Routes.WELCOME);
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const WelcomeView()),
+        (Route<dynamic> route) => false,
+      );
     }
     setState(() {
       _selected = sel;

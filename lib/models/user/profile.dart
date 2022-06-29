@@ -16,12 +16,14 @@ class ProfileModel {
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) {
     return ProfileModel(
-      email: json['email'],
-      phone: json['phone'],
-      age: json['age'],
-      gender: json['gender'],
-      nickname: json['nickname'],
-      profileImage: ProfileImageModel.fromJson(json['image']),
+      email: json['email'] != null ? json['email'] : null,
+      phone: json['phone'] != null ? json['phone'] : null,
+      age: json['age'] != null ? json['age'] : null,
+      gender: json['gender'] != null ? json['gender'] : null,
+      nickname: json['nickname'] != null ? json['nickname'] : null,
+      profileImage: json['image'] != null
+          ? ProfileImageModel.fromJson(json['image'])
+          : null,
     );
   }
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "125866533813",
+    "project_id": "bobjari-2f62c",
+    "storage_bucket": "bobjari-2f62c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125866533813:android:35b51e0fd1c1a444706ffc",
+        "android_client_info": {
+          "package_name": "com.example.bobjari_proj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125866533813-gpkmslcjhmbl8rrka4uaqk3l7p5haess.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJgB8sb61zb9DGaN84k74Xiqw4D-3R1C0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125866533813-gpkmslcjhmbl8rrka4uaqk3l7p5haess.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

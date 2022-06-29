@@ -37,6 +37,8 @@ class BigButton extends StatelessWidget {
         ),
         child: Text(title,
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: txtColor)));
+                fontSize: MediaQuery.of(context).size.width * 0.05,
+                fontWeight: FontWeight.bold,
+                color: txtColor)));
   }
 }

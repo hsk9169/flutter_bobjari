@@ -38,32 +38,36 @@ class BobGuidesCard extends StatelessWidget {
         child: Row(children: [
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(title,
-                style: const TextStyle(
-                    fontSize: 25,
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.03,
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
-            const Padding(padding: EdgeInsets.all(5)),
+            Padding(
+                padding:
+                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.005)),
             Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Icon(Icons.arrow_forward,
-                      size: 15, color: Colors.white),
+                  Icon(Icons.arrow_forward,
+                      size: MediaQuery.of(context).size.height * 0.016,
+                      color: Colors.white),
                   const Padding(padding: EdgeInsets.all(0.5)),
                   Text(link,
-                      style: const TextStyle(
-                          fontSize: 15,
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.016,
                           fontWeight: FontWeight.normal,
                           color: Colors.white))
                 ])
           ]),
           Row(children: [
-            ConstrainedBox(
-                constraints: BoxConstraints(
-                    minWidth: MediaQuery.of(context).size.width * 0.04)),
+            Padding(
+                padding: EdgeInsets.all(
+              MediaQuery.of(context).size.width * 0.01,
+            )),
             Container(
               alignment: Alignment.centerRight,
-              width: (MediaQuery.of(context).size.width) * 0.3,
+              width: (MediaQuery.of(context).size.height) * 0.12,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/dog.png'),
@@ -86,8 +90,8 @@ class BobRulesCard extends StatelessWidget {
     return NotificationCard(
         color: Colors.greenAccent,
         child: Text(title,
-            style: const TextStyle(
-                fontSize: 25,
+            style: TextStyle(
+                fontSize: MediaQuery.of(context).size.height * 0.03,
                 fontWeight: FontWeight.bold,
                 color: Colors.white)));
   }

@@ -33,7 +33,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.4
-  google_maps_flutter: ^2.1.2
+  google_maps_flutter: ^2.1.6
+  #google_place: ^0.4.7
   graphx: ^1.0.3
   provider: ^6.0.2
   http: ^0.13.4
@@ -42,7 +43,7 @@ dependencies:
   image_picker: ^0.8.4+11
   animations: ^2.0.2
   crypto: ^3.0.1
-  flutter_dotenv: ^5.0.2
+  flutter_dotenv: ^5.0.2 
   json_annotation: ^4.4.0
   platform: ^3.1.0
   package_info_plus: ^1.4.2
@@ -51,11 +52,16 @@ dependencies:
   kakao_flutter_sdk: ^1.1.0
   kakao_flutter_sdk_user: ^1.1.0 # 카카오 로그인
   kakao_flutter_sdk_talk: ^1.1.0 # 카카오톡(소셜, 메시지)
-  #firebase_core: ^1.7.0 # required for initializing firebase app
-  #firebase_messaging: ^11.3.0 # required for sending/receiving messages through FCM
+  firebase_core: ^1.7.0 # required for initializing firebase app
+  firebase_messaging: ^11.3.0 # required for sending/receiving messages through FCM
   flutter_local_notifications: ^9.5.0 # required to show chat notifications
   flutter_native_timezone: ^2.0.0
-  flutter_socket_io: ^0.6.0
+  socket_io_client: ^1.0.2
+  uuid: ^3.0.6
+  geolocator: ^8.2.1
+  kakaomap_webview: ^0.5.0
+  url_launcher: ^6.1.3
+
 
 dev_dependencies:
   flutter_test:

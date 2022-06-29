@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:bobjari_proj/const/colors.dart';
 import 'package:bobjari_proj/widgets/signup_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,17 +16,20 @@ class SignupProfileNicknameView extends StatefulWidget {
 class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
   final RealApiService _realApiService = RealApiService();
   //final FakeApiService _fakeApiService = FakeApiService();
-  final _textController = TextEditingController(text: '테스트계정');
+  final _textController = TextEditingController(text: '테스트계정2');
   bool _validate = false;
   bool _duplicate = false;
   Timer? _timer;
   String _nickname = '';
+  late ScrollController _scrollController;
 
   @override
   void initState() {
-    super.initState();
     _textValidate();
     _textController.addListener(_onChange);
+    _scrollController = ScrollController();
+
+    super.initState();
   }
 
   @override
@@ -36,7 +40,7 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
   }
 
   void _initTimer() {
-    _timer = Timer(const Duration(milliseconds: 300), _expired);
+    _timer = Timer(const Duration(milliseconds: 100), _expired);
   }
 
   void _expired() async {
@@ -87,22 +91,29 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
   @override
   Widget build(BuildContext context) {
     return SignupForm(
+        isbasePadding: true,
         topTitle: const ['밥자리에서 사용할', '닉네임을 설정해주세요.'],
-        child: TextField(
-          controller: _textController,
-          decoration: InputDecoration(
-            border: const OutlineInputBorder(),
-            hintText: '닉네임 입력',
-            helperText: !_duplicate ? '사용 가능한 닉네임입니다.' : null,
-            errorText: !_validate
-                ? '닉네임은 5글자 이상이어야 합니다.'
-                : _duplicate
-                    ? '중복되는 닉네임이 존재합니다.'
-                    : null,
-          ),
-        ),
-        btnTitle: '다 음',
+        child: SingleChildScrollView(
+            controller: _scrollController,
+            child: Column(children: [
+              TextField(
+                controller: _textController,
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  hintText: '닉네임 입력',
+                  helperText: !_duplicate ? '사용 가능한 닉네임입니다.' : null,
+                  errorText: !_validate
+                      ? '닉네임은 5글자 이상이어야 합니다.'
+                      : _duplicate
+                          ? '중복되는 닉네임이 존재합니다.'
+                          : null,
+                ),
+                autofocus: true,
+              ),
+            ])),
+        btn2Title: '다 음',
+        btn2Color: BobColors.mainColor,
         pressBack: _pressBack,
-        pressNext: _validate && !_duplicate ? _pressNext : null);
+        pressBtn2: _validate && !_duplicate ? () => _pressNext() : null);
   }
 }
