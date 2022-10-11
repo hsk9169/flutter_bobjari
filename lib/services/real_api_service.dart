@@ -16,8 +16,9 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class RealApiService implements Api {
   //var _hostAddress = '18.191.220.124';
-  //var _hostAddress = '172.20.10.12';
-  var _hostAddress = 'localhost';
+  var _hostAddress = '172.20.10.12';
+  //var _hostAddress = 'localhost';
+  //var _hostAddress = '172.30.1.24';
 
   @override
   Future<String> authEmail(String email) async {

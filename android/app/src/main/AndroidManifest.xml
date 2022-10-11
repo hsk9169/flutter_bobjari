@@ -14,11 +14,16 @@
     <!-- location -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
    <application
         android:label="bobjari_proj"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
+        <meta-data 
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAXg6AhglZZQkJSCprVDO7gpEP_zs8S7zI"/>
         <!-- Added 'showWhenLocked' and 'turnScreenOn' for local notification -->
         <activity
             android:name=".MainActivity"
@@ -78,7 +83,5 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="high_importance_channel" />
-        <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyAXg6AhglZZQkJSCprVDO7gpEP_zs8S7zI"/>
     </application>
 </manifest>

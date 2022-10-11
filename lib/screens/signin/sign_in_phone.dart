@@ -26,6 +26,10 @@ class _SignInPhonelView extends State<SignInPhoneView> {
   final FakeApiService _fakeApiService = FakeApiService();
   late TextEditingController _textController;
   bool _validate = false;
+  late FocusNode _textFocus;
+
+  ValueNotifier<List<String>> _authNum =
+      ValueNotifier<List<String>>(['', '', '', '', '', '']);
 
   @override
   void initState() {
@@ -33,11 +37,13 @@ class _SignInPhonelView extends State<SignInPhoneView> {
     _textController = TextEditingController(text: widget.authNum);
     _textValidate();
     _textController.addListener(_onChange);
+    _textFocus = FocusNode();
   }
 
   @override
   void dispose() {
     _textController.dispose();
+    _textFocus.dispose();
     super.dispose();
   }
 
@@ -46,6 +52,34 @@ class _SignInPhonelView extends State<SignInPhoneView> {
   }
 
   void _textValidate() {
+    String num = '';
+    int i;
+    for (i = 0; i < _authNum.value.length; i++) {
+      if (_authNum.value[i] != '') {
+        num += _authNum.value[i];
+      }
+    }
+    if (num.length != _textController.text.length) {
+      if (num.length < _textController.text.length) {
+        for (i = 0; i < _textController.text.length; i++) {
+          setState(() {
+            _authNum.value[i] = _textController.text.substring(i, i + 1);
+          });
+        }
+      } else {
+        for (i = 0; i < _textController.text.length; i++) {
+          setState(() {
+            _authNum.value[i] = _textController.text.substring(i, i + 1);
+          });
+        }
+        for (i = _textController.text.length; i < num.length; i++) {
+          setState(() {
+            _authNum.value[i] = '';
+          });
+        }
+      }
+    }
+
     if (widget.authNum == _textController.text) {
       setState(() {
         _validate = true;
@@ -89,32 +123,64 @@ class _SignInPhonelView extends State<SignInPhoneView> {
         isbasePadding: false,
         topTitle: const ['휴대전화로 받은', '인증번호를 입력해주세요.'],
         pressBack: _goBack,
-        child: Column(children: [
-          BasePadding(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      hintText: '인증번호 입력',
-                      errorText: !_validate ? '인증번호가 맞지 않습니다.' : null,
-                      suffixIcon: IconButton(
-                          padding: EdgeInsets.zero,
-                          constraints: const BoxConstraints(),
-                          icon: const Icon(Icons.cancel),
-                          color: Colors.grey,
-                          onPressed: () => setState(() {
-                                _textController.text = '';
-                              }))),
-                  controller: _textController,
-                  keyboardType: TextInputType.number,
-                  autofocus: true,
-                ),
-              ],
-            ),
-          )
-        ]),
+        child: BasePadding(
+            child: GestureDetector(
+                onTap: () => _textFocus.requestFocus(),
+                child: Stack(children: [
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.width * 0.05,
+                      child: TextField(
+                          controller: _textController,
+                          maxLength: 6,
+                          keyboardType: TextInputType.number,
+                          focusNode: _textFocus,
+                          onTap: null,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            counterText: "",
+                          ),
+                          showCursor: false,
+                          autofocus: true)),
+                  Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.04,
+                        right: MediaQuery.of(context).size.width * 0.04,
+                      ),
+                      child: ValueListenableBuilder(
+                          builder: (BuildContext context, List<String> value,
+                              Widget? child) {
+                            return Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: List.generate(
+                                    6,
+                                    (idx) => value[idx] == ''
+                                        ? Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.05,
+                                            decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.grey),
+                                          )
+                                        : Text(value[idx],
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.1,
+                                                fontWeight: FontWeight.bold))));
+                          },
+                          valueListenable: _authNum))
+                ]))),
         btn1Title: '인증번호 확인',
         btn1Color: Colors.black,
         pressBtn1: _validate ? _signInPhone : null);

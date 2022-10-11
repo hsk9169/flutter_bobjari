@@ -197,7 +197,7 @@ class _SignupMentorCompanyView extends State<SignupMentorCompanyView> {
                         color:
                             _company == '' ? BobColors.mainColor : Colors.grey),
                     const Padding(padding: EdgeInsets.all(3)),
-                    Text('직업명을 입력해주세요.',
+                    Text('회사명을 입력해주세요.',
                         style: TextStyle(
                             color: _isSearchbarTapped
                                 ? Colors.grey[300]

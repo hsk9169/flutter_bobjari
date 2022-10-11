@@ -1,3 +1,4 @@
+import 'package:bobjari_proj/models/preference/location.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:bobjari_proj/models/kakao_map_model.dart';
@@ -34,14 +35,15 @@ class KakaoService {
     return await UserApi.instance.loginWithKakaoTalk();
   }
 
-  Future<List<PlaceModel>> searchPlaceByKeyword(String keyword) async {
+  Future<List<PlaceModel>> searchPlaceByKeyword(
+      String keyword, GeoModel curPos) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': 'KakaoAK $_restApiKey'
     };
     final res = await http.get(
         Uri.parse(
-            'https://dapi.kakao.com/v2/local/search/keyword.json?query=$keyword'),
+            'https://dapi.kakao.com/v2/local/search/keyword.json?query=$keyword&y=${curPos.y}&x=${curPos.x}&radius=10000'),
         headers: headers);
     if (res.statusCode == 200) {
       final document = json.decode(res.body);

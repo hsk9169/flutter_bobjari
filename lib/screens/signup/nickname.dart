@@ -28,7 +28,6 @@ class _SignupProfileNicknameView extends State<SignupProfileNicknameView> {
     _textValidate();
     _textController.addListener(_onChange);
     _scrollController = ScrollController();
-
     super.initState();
   }
 

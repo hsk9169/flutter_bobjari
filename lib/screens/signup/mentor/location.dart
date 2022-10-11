@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:async';
 import 'package:bobjari_proj/widgets/signup_form.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +11,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:bobjari_proj/services/kakao_service.dart';
 import 'package:bobjari_proj/models/kakao_map_model.dart';
 import 'package:bobjari_proj/screens/signup/mentor/auth.dart';
+import 'package:bobjari_proj/models/preference/location.dart';
 import 'package:kakaomap_webview/kakaomap_webview.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:geolocator/geolocator.dart';
 
 class SignupMentorLocationView extends StatefulWidget {
   @override
@@ -49,6 +52,8 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
   ValueNotifier<int> _selIdx = ValueNotifier<int>(-1);
   bool _found = false;
   late WebViewController _mapController;
+  late GeoModel _curPos;
+  late Future<GeoModel> _mapDataFuture;
 
   @override
   void initState() {
@@ -59,6 +64,8 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
     _searchListScrollController = ScrollController();
     _textController.addListener(_onChanged);
     _textFocusNode = FocusNode();
+    _mapDataFuture = _initCurPosition();
+    _initPosition(_mapDataFuture);
     super.initState();
   }
 
@@ -71,6 +78,45 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
     _textFocusNode.dispose();
     //_timer?.cancel();
     super.dispose();
+  }
+
+  Future<GeoModel> _initCurPosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    final _curPosition = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+        forceAndroidLocationManager: true);
+
+    return GeoModel(
+        y: _curPosition.latitude.toString(),
+        x: _curPosition.longitude.toString());
+  }
+
+  void _initPosition(Future<GeoModel> pos) async {
+    final _pos = await pos;
+    setState(() {
+      _curPos = _pos;
+    });
   }
 
   void _onChanged() async {
@@ -124,7 +170,7 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
       }
     ''');
     _mapHeight.value = MediaQuery.of(context).size.height * 0.6;
-    final result = await _kakaoService.searchPlaceByKeyword(_query);
+    final result = await _kakaoService.searchPlaceByKeyword(_query, _curPos);
     _isSearched.value = true;
     _lat = [];
     _lng = [];
@@ -179,6 +225,18 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
   //  _mapController = controller;
   //}
 
+  int _getDistance(GeoModel _target) {
+    const p = 0.017453292519943295;
+    final a = 0.5 -
+        cos((double.parse(_target.y) - double.parse(_curPos.y)) * p) / 2 +
+        cos(double.parse(_curPos.y) * p) *
+            cos(double.parse(_target.y) * p) *
+            (1 - cos((double.parse(_target.x) - double.parse(_curPos.x)) * p)) /
+            2;
+    final distance = 12742 * asin(sqrt(a)) * 1000;
+    return distance.round();
+  }
+
   void _onUrlTapped(String url) async {
     final Uri _url = Uri.parse(url);
     if (!await launchUrl(_url)) throw 'Could not launch $_url';
@@ -226,17 +284,25 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
                                         topLeft: Radius.circular(30),
                                         topRight: Radius.circular(30),
                                       ),
-                                      child: KakaoMapView(
-                                        width: w,
-                                        height: _mapH,
-                                        kakaoMapKey: _kakaoApiKey,
-                                        lat: 33.450701,
-                                        lng: 126.570667,
-                                        zoomLevel: 4,
-                                        mapController: (controller) {
-                                          _mapController = controller;
-                                        },
-                                        customScript: '''
+                                      child: FutureBuilder<GeoModel>(
+                                          future: _mapDataFuture,
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              final locationModel =
+                                                  snapshot.data!;
+                                              return KakaoMapView(
+                                                width: w,
+                                                height: _mapH,
+                                                kakaoMapKey: _kakaoApiKey,
+                                                lat: double.parse(
+                                                    locationModel.y),
+                                                lng: double.parse(
+                                                    locationModel.x),
+                                                zoomLevel: 4,
+                                                mapController: (controller) {
+                                                  _mapController = controller;
+                                                },
+                                                customScript: '''
                                           let markers = [];
                                           let moveLatLon;
                                           //var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png';   
@@ -251,16 +317,30 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
                                           }
 
                                         ''',
-                                        onTapMarker: (message) =>
-                                            print(message.message),
-                                      )),
+                                                onTapMarker: (message) =>
+                                                    print(message.message),
+                                              );
+                                            } else {
+                                              return Container(
+                                                  alignment: Alignment.center,
+                                                  child: Text('Kakao Map'));
+                                            }
+                                          })),
                                   value
                                       ? Container(
                                           decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              border: Border(
-                                                  top: BorderSide(
-                                                      color: Colors.grey))),
+                                            color: Colors.white,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.8),
+                                                spreadRadius: 4,
+                                                blurRadius: 8,
+                                                offset: const Offset(0,
+                                                    0), // changes position of shadow
+                                              ),
+                                            ],
+                                          ),
                                           width:
                                               MediaQuery.of(context).size.width,
                                           height: _listH,
@@ -465,180 +545,186 @@ class _SignupMentorLocationView extends State<SignupMentorLocationView> {
                   return value == -1
                       ? SingleChildScrollView(
                           controller: _searchListScrollController,
-                          child: Container(
-                              padding: EdgeInsets.only(
-                                top: MediaQuery.of(context).size.height * 0.01,
-                                bottom:
-                                    MediaQuery.of(context).size.height * 0.01,
-                              ),
-                              color: Colors.white,
-                              child: Column(
-                                  children: List.generate(
-                                      list.length,
-                                      (idx) => GestureDetector(
-                                          onTapDown: (details) {
-                                            _isItemTapped.value = true;
-                                            _selected.value = idx;
-                                          },
-                                          onTapUp: (details) {
-                                            Future.delayed(
-                                                const Duration(
-                                                    milliseconds: 100), () {
-                                              _isItemTapped.value = false;
-                                              _selected.value = -1;
-                                              //_onItemSelected(_suggestionList.value[idx]);
-                                              _onItemSelected(idx);
-                                              //Navigator.pop(context);
-                                            });
-                                          },
-                                          onTapCancel: () {
-                                            Future.delayed(
-                                                const Duration(
-                                                    milliseconds: 100), () {
-                                              _isItemTapped.value = false;
-                                              _selected.value = -1;
-                                            });
-                                          },
-                                          child: ValueListenableBuilder(
-                                              builder: (BuildContext context,
-                                                  int value, Widget? child) {
-                                                return Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            0.95,
-                                                    decoration: BoxDecoration(
-                                                        color: value == idx
-                                                            ? Colors.grey[200]
-                                                            : Colors.white,
-                                                        border: Border(
-                                                            bottom: BorderSide(
+                          child: Column(
+                              children: List.generate(
+                                  list.length,
+                                  (idx) => GestureDetector(
+                                      onTapDown: (details) {
+                                        _isItemTapped.value = true;
+                                        _selected.value = idx;
+                                      },
+                                      onTapUp: (details) {
+                                        Future.delayed(
+                                            const Duration(milliseconds: 100),
+                                            () {
+                                          _isItemTapped.value = false;
+                                          _selected.value = -1;
+                                          _onItemSelected(idx);
+                                        });
+                                      },
+                                      onTapCancel: () {
+                                        Future.delayed(
+                                            const Duration(milliseconds: 100),
+                                            () {
+                                          _isItemTapped.value = false;
+                                          _selected.value = -1;
+                                        });
+                                      },
+                                      child: ValueListenableBuilder(
+                                          builder: (BuildContext context,
+                                              int value, Widget? child) {
+                                            final int dMeter = _getDistance(
+                                                list[idx].geolocation!);
+                                            String distance;
+                                            bool isMeter = true;
+                                            if (dMeter > 999) {
+                                              distance = (dMeter / 1000)
+                                                  .toStringAsFixed(1);
+                                              isMeter = false;
+                                            } else {
+                                              distance = dMeter.toString();
+                                            }
+                                            return Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.95,
+                                                decoration: BoxDecoration(
+                                                    color: value == idx
+                                                        ? Colors.grey[200]
+                                                        : Colors.white,
+                                                    border: Border(
+                                                        bottom: BorderSide(
+                                                            color: Colors.grey[
+                                                                    200] ??
+                                                                Colors
+                                                                    .black12))),
+                                                padding: EdgeInsets.only(
+                                                  top: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.03,
+                                                  bottom: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.03,
+                                                ),
+                                                child: Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Column(children: [
+                                                        Container(
+                                                            padding: EdgeInsets
+                                                                .all(MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .width *
+                                                                    0.01),
+                                                            decoration: BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
                                                                 color: Colors
-                                                                            .grey[
-                                                                        200] ??
-                                                                    Colors
-                                                                        .black12))),
-                                                    padding: EdgeInsets.only(
-                                                      top:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.03,
-                                                      bottom:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.03,
-                                                    ),
-                                                    child: Row(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Column(children: [
-                                                            Container(
-                                                                padding: EdgeInsets.all(
-                                                                    MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.01),
-                                                                decoration: BoxDecoration(
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                    color: Colors
-                                                                            .grey[
-                                                                        200]),
-                                                                child: Icon(
-                                                                    Icons
-                                                                        .location_on_outlined,
-                                                                    size: MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.06)),
-                                                            Text('700m',
-                                                                style: TextStyle(
-                                                                    fontSize: MediaQuery.of(context)
-                                                                            .size
-                                                                            .width *
-                                                                        0.03,
-                                                                    color: Colors
-                                                                        .grey))
-                                                          ]),
-                                                          Padding(
-                                                              padding: EdgeInsets.all(
-                                                                  MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.02)),
-                                                          SizedBox(
-                                                              width: MediaQuery.of(
+                                                                    .grey[200]),
+                                                            child: Icon(
+                                                                Icons
+                                                                    .location_on_outlined,
+                                                                size: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .width *
+                                                                    0.06)),
+                                                        Text(
+                                                            //dMeter
+                                                            //    .toString(),
+                                                            isMeter
+                                                                ? '${distance}m'
+                                                                : '${distance}km',
+                                                            style: TextStyle(
+                                                                fontSize: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .width *
+                                                                    0.03,
+                                                                color: Colors
+                                                                    .grey))
+                                                      ]),
+                                                      Padding(
+                                                          padding: EdgeInsets
+                                                              .all(MediaQuery.of(
                                                                           context)
                                                                       .size
                                                                       .width *
-                                                                  0.77,
-                                                              child: Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  children: [
-                                                                    Text(
-                                                                        list[idx]
-                                                                            .name!,
-                                                                        style: TextStyle(
-                                                                            fontSize: MediaQuery.of(context).size.width *
+                                                                  0.02)),
+                                                      SizedBox(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.77,
+                                                          child: Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                    list[
+                                                                            idx]
+                                                                        .name!,
+                                                                    style: TextStyle(
+                                                                        fontSize:
+                                                                            MediaQuery.of(context).size.width *
                                                                                 0.04,
-                                                                            color: Colors
-                                                                                .black,
-                                                                            fontWeight: FontWeight
+                                                                        color: Colors
+                                                                            .black,
+                                                                        fontWeight:
+                                                                            FontWeight
                                                                                 .bold),
-                                                                        overflow:
-                                                                            TextOverflow
-                                                                                .fade,
-                                                                        maxLines:
-                                                                            1,
-                                                                        softWrap:
-                                                                            false),
-                                                                    Padding(
-                                                                        padding:
-                                                                            EdgeInsets.all(MediaQuery.of(context).size.width *
-                                                                                0.005)),
-                                                                    Text(
-                                                                        list[idx]
-                                                                            .address!,
-                                                                        style: TextStyle(
-                                                                            fontSize: MediaQuery.of(context).size.width *
+                                                                    overflow:
+                                                                        TextOverflow
+                                                                            .fade,
+                                                                    maxLines: 1,
+                                                                    softWrap:
+                                                                        false),
+                                                                Padding(
+                                                                    padding: EdgeInsets.all(MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        0.005)),
+                                                                Text(
+                                                                    list[idx]
+                                                                        .address!,
+                                                                    style: TextStyle(
+                                                                        fontSize:
+                                                                            MediaQuery.of(context).size.width *
                                                                                 0.035,
-                                                                            color: Colors
-                                                                                .grey),
-                                                                        overflow:
-                                                                            TextOverflow
-                                                                                .fade,
-                                                                        maxLines:
-                                                                            1,
-                                                                        softWrap:
-                                                                            false)
-                                                                  ])),
-                                                          Icon(
-                                                              Icons
-                                                                  .arrow_forward_ios,
-                                                              size: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.04,
-                                                              color:
-                                                                  Colors.grey)
-                                                        ]));
-                                              },
-                                              valueListenable: _selected))))))
+                                                                        color: Colors
+                                                                            .grey),
+                                                                    overflow:
+                                                                        TextOverflow
+                                                                            .fade,
+                                                                    maxLines: 1,
+                                                                    softWrap:
+                                                                        false)
+                                                              ])),
+                                                      Icon(
+                                                          Icons
+                                                              .arrow_forward_ios,
+                                                          size: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.04,
+                                                          color: Colors.grey)
+                                                    ]));
+                                          },
+                                          valueListenable: _selected)))))
                       : Container(
                           alignment: Alignment.topCenter,
                           padding: EdgeInsets.only(

@@ -123,9 +123,10 @@ class _WelcomeView extends State<WelcomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: BasePadding(
-                child: Column(
+        body: SingleChildScrollView(
+            child: SafeArea(
+                child: BasePadding(
+                    child: Column(
       children: [
         const Padding(padding: EdgeInsets.all(10)),
         SizedBox(
@@ -178,7 +179,7 @@ class _WelcomeView extends State<WelcomeView> {
               ))
         ])
       ],
-    ))));
+    )))));
   }
 }
 

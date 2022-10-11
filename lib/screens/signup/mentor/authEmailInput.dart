@@ -7,7 +7,7 @@ import 'package:bobjari_proj/providers/session_provider.dart';
 import 'package:bobjari_proj/routes/routes.dart';
 import 'package:bobjari_proj/screens/signup/mentor/authEmailCheck.dart';
 import 'package:bobjari_proj/const/etc.dart';
-import './schedule.dart';
+import 'package:bobjari_proj/services/fake_api_service.dart';
 
 class SignupMentorAuthEmailInputView extends StatefulWidget {
   @override
@@ -18,6 +18,7 @@ class _SignupMentorAuthEmailInputView
     extends State<SignupMentorAuthEmailInputView> {
   final _textController = TextEditingController(text: 'test@naver.com');
   String _email = '';
+  FakeApiService _apiService = FakeApiService();
 
   @override
   void initState() {
@@ -39,11 +40,14 @@ class _SignupMentorAuthEmailInputView
     Navigator.pop(context, false);
   }
 
-  void _pressNext() {
+  void _pressNext() async {
+    String _email = _textController.text;
+    final _res = await _apiService.authEmail(_email);
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => SignupMentorAuthEmailCheckView()));
+            builder: (context) =>
+                SignupMentorAuthEmailCheckView(authNum: _res)));
   }
 
   @override
